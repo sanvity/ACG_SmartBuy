@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #050507;
+  --bg-card: #0F0F14;
+  --bg-card-hover: #1A1A22;
+  --accent-red: #EF4444;
+  --accent-red-bright: #F87171;
+  --accent-crimson: #DC2626;
+  --accent-darkred: #991B1B;
+  --accent-rose: #F43F5E;
+  --accent-amber: #F59E0B;
+  --accent-emerald: #10B981;
+  --border-color: rgba(239, 68, 68, 0.15);
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: #F9FAFB;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Red & Black Glassmorphism utility */
+.glass-panel {
+  background: rgba(15, 15, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+}
+
+.glass-card {
+  background: rgba(24, 24, 32, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+}
+
+.glass-card-red {
+  background: rgba(220, 38, 38, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+}
+
+.gradient-text-red {
+  background: linear-gradient(135deg, #F87171 0%, #DC2626 50%, #991B1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-rose {
+  background: linear-gradient(135deg, #FB7185 0%, #E11D48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+::-webkit-scrollbar-thumb {
+  background: #7F1D1D;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #991B1B;
+}

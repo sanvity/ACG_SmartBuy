@@ -1,0 +1,2335 @@
+{
+  "horizon_metrics": {
+    "1": {
+      "mape": 4.12,
+      "mape_naive": 4.24,
+      "da": 56.67
+    },
+    "2": {
+      "mape": 6.26,
+      "mape_naive": 6.72,
+      "da": 58.33
+    },
+    "3": {
+      "mape": 8.35,
+      "mape_naive": 8.82,
+      "da": 55.83
+    }
+  },
+  "historical_data": [
+    {
+      "date": "2007-04-01",
+      "pvc_resin": 1478.5,
+      "aluminium": 2738.0
+    },
+    {
+      "date": "2007-05-01",
+      "pvc_resin": 1357.0,
+      "aluminium": 2513.0
+    },
+    {
+      "date": "2007-06-01",
+      "pvc_resin": 1293.3,
+      "aluminium": 2395.0
+    },
+    {
+      "date": "2007-07-01",
+      "pvc_resin": 1320.3,
+      "aluminium": 2445.0
+    },
+    {
+      "date": "2007-08-01",
+      "pvc_resin": 1353.8,
+      "aluminium": 2507.0
+    },
+    {
+      "date": "2007-09-01",
+      "pvc_resin": 1286.8,
+      "aluminium": 2383.0
+    },
+    {
+      "date": "2007-10-01",
+      "pvc_resin": 1326.2,
+      "aluminium": 2456.0
+    },
+    {
+      "date": "2007-11-01",
+      "pvc_resin": 1503.9,
+      "aluminium": 2785.0
+    },
+    {
+      "date": "2007-12-01",
+      "pvc_resin": 1626.5,
+      "aluminium": 3012.0
+    },
+    {
+      "date": "2008-01-01",
+      "pvc_resin": 1602.7,
+      "aluminium": 2968.0
+    },
+    {
+      "date": "2008-02-01",
+      "pvc_resin": 1570.3,
+      "aluminium": 2908.0
+    },
+    {
+      "date": "2008-03-01",
+      "pvc_resin": 1602.7,
+      "aluminium": 2968.0
+    },
+    {
+      "date": "2008-04-01",
+      "pvc_resin": 1656.2,
+      "aluminium": 3067.0
+    },
+    {
+      "date": "2008-05-01",
+      "pvc_resin": 1492.0,
+      "aluminium": 2763.0
+    },
+    {
+      "date": "2008-06-01",
+      "pvc_resin": 1363.0,
+      "aluminium": 2524.0
+    },
+    {
+      "date": "2008-07-01",
+      "pvc_resin": 1145.9,
+      "aluminium": 2122.0
+    },
+    {
+      "date": "2008-08-01",
+      "pvc_resin": 1002.8,
+      "aluminium": 1857.0
+    },
+    {
+      "date": "2008-09-01",
+      "pvc_resin": 812.2,
+      "aluminium": 1504.0
+    },
+    {
+      "date": "2008-10-01",
+      "pvc_resin": 766.8,
+      "aluminium": 1420.0
+    },
+    {
+      "date": "2008-11-01",
+      "pvc_resin": 722.5,
+      "aluminium": 1338.0
+    },
+    {
+      "date": "2008-12-01",
+      "pvc_resin": 722.5,
+      "aluminium": 1338.0
+    },
+    {
+      "date": "2009-01-01",
+      "pvc_resin": 773.3,
+      "aluminium": 1432.0
+    },
+    {
+      "date": "2009-02-01",
+      "pvc_resin": 790.6,
+      "aluminium": 1464.0
+    },
+    {
+      "date": "2009-03-01",
+      "pvc_resin": 856.4,
+      "aluminium": 1586.0
+    },
+    {
+      "date": "2009-04-01",
+      "pvc_resin": 904.0,
+      "aluminium": 1674.0
+    },
+    {
+      "date": "2009-05-01",
+      "pvc_resin": 1041.1,
+      "aluminium": 1928.0
+    },
+    {
+      "date": "2009-06-01",
+      "pvc_resin": 991.4,
+      "aluminium": 1836.0
+    },
+    {
+      "date": "2009-07-01",
+      "pvc_resin": 1013.0,
+      "aluminium": 1876.0
+    },
+    {
+      "date": "2009-08-01",
+      "pvc_resin": 1056.8,
+      "aluminium": 1957.0
+    },
+    {
+      "date": "2009-09-01",
+      "pvc_resin": 1177.7,
+      "aluminium": 2181.0
+    },
+    {
+      "date": "2009-10-01",
+      "pvc_resin": 1204.2,
+      "aluminium": 2230.0
+    },
+    {
+      "date": "2009-11-01",
+      "pvc_resin": 1108.6,
+      "aluminium": 2053.0
+    },
+    {
+      "date": "2009-12-01",
+      "pvc_resin": 1193.9,
+      "aluminium": 2211.0
+    },
+    {
+      "date": "2010-01-01",
+      "pvc_resin": 1249.6,
+      "aluminium": 2314.0
+    },
+    {
+      "date": "2010-02-01",
+      "pvc_resin": 1104.3,
+      "aluminium": 2045.0
+    },
+    {
+      "date": "2010-03-01",
+      "pvc_resin": 1041.7,
+      "aluminium": 1929.0
+    },
+    {
+      "date": "2010-04-01",
+      "pvc_resin": 1074.1,
+      "aluminium": 1989.0
+    },
+    {
+      "date": "2010-05-01",
+      "pvc_resin": 1139.4,
+      "aluminium": 2110.0
+    },
+    {
+      "date": "2010-06-01",
+      "pvc_resin": 1172.3,
+      "aluminium": 2171.0
+    },
+    {
+      "date": "2010-07-01",
+      "pvc_resin": 1264.7,
+      "aluminium": 2342.0
+    },
+    {
+      "date": "2010-08-01",
+      "pvc_resin": 1255.0,
+      "aluminium": 2324.0
+    },
+    {
+      "date": "2010-09-01",
+      "pvc_resin": 1272.8,
+      "aluminium": 2357.0
+    },
+    {
+      "date": "2010-10-01",
+      "pvc_resin": 1317.6,
+      "aluminium": 2440.0
+    },
+    {
+      "date": "2010-11-01",
+      "pvc_resin": 1358.1,
+      "aluminium": 2515.0
+    },
+    {
+      "date": "2010-12-01",
+      "pvc_resin": 1379.7,
+      "aluminium": 2555.0
+    },
+    {
+      "date": "2011-01-01",
+      "pvc_resin": 1440.2,
+      "aluminium": 2667.0
+    },
+    {
+      "date": "2011-02-01",
+      "pvc_resin": 1397.0,
+      "aluminium": 2587.0
+    },
+    {
+      "date": "2011-03-01",
+      "pvc_resin": 1381.3,
+      "aluminium": 2558.0
+    },
+    {
+      "date": "2011-04-01",
+      "pvc_resin": 1363.5,
+      "aluminium": 2525.0
+    },
+    {
+      "date": "2011-05-01",
+      "pvc_resin": 1285.7,
+      "aluminium": 2381.0
+    },
+    {
+      "date": "2011-06-01",
+      "pvc_resin": 1238.2,
+      "aluminium": 2293.0
+    },
+    {
+      "date": "2011-07-01",
+      "pvc_resin": 1177.7,
+      "aluminium": 2181.0
+    },
+    {
+      "date": "2011-08-01",
+      "pvc_resin": 1123.2,
+      "aluminium": 2080.0
+    },
+    {
+      "date": "2011-09-01",
+      "pvc_resin": 1093.0,
+      "aluminium": 2024.0
+    },
+    {
+      "date": "2011-10-01",
+      "pvc_resin": 1161.5,
+      "aluminium": 2151.0
+    },
+    {
+      "date": "2011-11-01",
+      "pvc_resin": 1192.3,
+      "aluminium": 2208.0
+    },
+    {
+      "date": "2011-12-01",
+      "pvc_resin": 1179.4,
+      "aluminium": 2184.0
+    },
+    {
+      "date": "2012-01-01",
+      "pvc_resin": 1106.5,
+      "aluminium": 2049.0
+    },
+    {
+      "date": "2012-02-01",
+      "pvc_resin": 1081.6,
+      "aluminium": 2003.0
+    },
+    {
+      "date": "2012-03-01",
+      "pvc_resin": 1018.4,
+      "aluminium": 1886.0
+    },
+    {
+      "date": "2012-04-01",
+      "pvc_resin": 1013.0,
+      "aluminium": 1876.0
+    },
+    {
+      "date": "2012-05-01",
+      "pvc_resin": 995.2,
+      "aluminium": 1843.0
+    },
+    {
+      "date": "2012-06-01",
+      "pvc_resin": 1114.6,
+      "aluminium": 2064.0
+    },
+    {
+      "date": "2012-07-01",
+      "pvc_resin": 1066.0,
+      "aluminium": 1974.0
+    },
+    {
+      "date": "2012-08-01",
+      "pvc_resin": 1052.5,
+      "aluminium": 1949.0
+    },
+    {
+      "date": "2012-09-01",
+      "pvc_resin": 1127.0,
+      "aluminium": 2087.0
+    },
+    {
+      "date": "2012-10-01",
+      "pvc_resin": 1100.5,
+      "aluminium": 2038.0
+    },
+    {
+      "date": "2012-11-01",
+      "pvc_resin": 1109.2,
+      "aluminium": 2054.0
+    },
+    {
+      "date": "2012-12-01",
+      "pvc_resin": 1031.9,
+      "aluminium": 1911.0
+    },
+    {
+      "date": "2013-01-01",
+      "pvc_resin": 1004.9,
+      "aluminium": 1861.0
+    },
+    {
+      "date": "2013-02-01",
+      "pvc_resin": 989.8,
+      "aluminium": 1833.0
+    },
+    {
+      "date": "2013-03-01",
+      "pvc_resin": 980.1,
+      "aluminium": 1815.0
+    },
+    {
+      "date": "2013-04-01",
+      "pvc_resin": 955.8,
+      "aluminium": 1770.0
+    },
+    {
+      "date": "2013-05-01",
+      "pvc_resin": 980.6,
+      "aluminium": 1816.0
+    },
+    {
+      "date": "2013-06-01",
+      "pvc_resin": 950.9,
+      "aluminium": 1761.0
+    },
+    {
+      "date": "2013-07-01",
+      "pvc_resin": 980.1,
+      "aluminium": 1815.0
+    },
+    {
+      "date": "2013-08-01",
+      "pvc_resin": 943.9,
+      "aluminium": 1748.0
+    },
+    {
+      "date": "2013-09-01",
+      "pvc_resin": 939.6,
+      "aluminium": 1740.0
+    },
+    {
+      "date": "2013-10-01",
+      "pvc_resin": 932.6,
+      "aluminium": 1727.0
+    },
+    {
+      "date": "2013-11-01",
+      "pvc_resin": 915.3,
+      "aluminium": 1695.0
+    },
+    {
+      "date": "2013-12-01",
+      "pvc_resin": 920.7,
+      "aluminium": 1705.0
+    },
+    {
+      "date": "2014-01-01",
+      "pvc_resin": 977.9,
+      "aluminium": 1811.0
+    },
+    {
+      "date": "2014-02-01",
+      "pvc_resin": 945.5,
+      "aluminium": 1751.0
+    },
+    {
+      "date": "2014-03-01",
+      "pvc_resin": 993.1,
+      "aluminium": 1839.0
+    },
+    {
+      "date": "2014-04-01",
+      "pvc_resin": 1051.9,
+      "aluminium": 1948.0
+    },
+    {
+      "date": "2014-05-01",
+      "pvc_resin": 1096.2,
+      "aluminium": 2030.0
+    },
+    {
+      "date": "2014-06-01",
+      "pvc_resin": 1074.6,
+      "aluminium": 1990.0
+    },
+    {
+      "date": "2014-07-01",
+      "pvc_resin": 1050.8,
+      "aluminium": 1946.0
+    },
+    {
+      "date": "2014-08-01",
+      "pvc_resin": 1110.2,
+      "aluminium": 2056.0
+    },
+    {
+      "date": "2014-09-01",
+      "pvc_resin": 1030.9,
+      "aluminium": 1909.0
+    },
+    {
+      "date": "2014-10-01",
+      "pvc_resin": 980.1,
+      "aluminium": 1815.0
+    },
+    {
+      "date": "2014-11-01",
+      "pvc_resin": 981.7,
+      "aluminium": 1818.0
+    },
+    {
+      "date": "2014-12-01",
+      "pvc_resin": 958.0,
+      "aluminium": 1774.0
+    },
+    {
+      "date": "2015-01-01",
+      "pvc_resin": 982.3,
+      "aluminium": 1819.0
+    },
+    {
+      "date": "2015-02-01",
+      "pvc_resin": 974.2,
+      "aluminium": 1804.0
+    },
+    {
+      "date": "2015-03-01",
+      "pvc_resin": 911.5,
+      "aluminium": 1688.0
+    },
+    {
+      "date": "2015-04-01",
+      "pvc_resin": 885.1,
+      "aluminium": 1639.0
+    },
+    {
+      "date": "2015-05-01",
+      "pvc_resin": 835.9,
+      "aluminium": 1548.0
+    },
+    {
+      "date": "2015-06-01",
+      "pvc_resin": 858.6,
+      "aluminium": 1590.0
+    },
+    {
+      "date": "2015-07-01",
+      "pvc_resin": 818.6,
+      "aluminium": 1516.0
+    },
+    {
+      "date": "2015-08-01",
+      "pvc_resin": 792.7,
+      "aluminium": 1468.0
+    },
+    {
+      "date": "2015-09-01",
+      "pvc_resin": 808.4,
+      "aluminium": 1497.0
+    },
+    {
+      "date": "2015-10-01",
+      "pvc_resin": 799.7,
+      "aluminium": 1481.0
+    },
+    {
+      "date": "2015-11-01",
+      "pvc_resin": 826.7,
+      "aluminium": 1531.0
+    },
+    {
+      "date": "2015-12-01",
+      "pvc_resin": 826.7,
+      "aluminium": 1531.0
+    },
+    {
+      "date": "2016-01-01",
+      "pvc_resin": 848.3,
+      "aluminium": 1571.0
+    },
+    {
+      "date": "2016-02-01",
+      "pvc_resin": 837.5,
+      "aluminium": 1551.0
+    },
+    {
+      "date": "2016-03-01",
+      "pvc_resin": 860.8,
+      "aluminium": 1594.0
+    },
+    {
+      "date": "2016-04-01",
+      "pvc_resin": 879.7,
+      "aluminium": 1629.0
+    },
+    {
+      "date": "2016-05-01",
+      "pvc_resin": 885.1,
+      "aluminium": 1639.0
+    },
+    {
+      "date": "2016-06-01",
+      "pvc_resin": 859.7,
+      "aluminium": 1592.0
+    },
+    {
+      "date": "2016-07-01",
+      "pvc_resin": 899.6,
+      "aluminium": 1666.0
+    },
+    {
+      "date": "2016-08-01",
+      "pvc_resin": 938.0,
+      "aluminium": 1737.0
+    },
+    {
+      "date": "2016-09-01",
+      "pvc_resin": 933.1,
+      "aluminium": 1728.0
+    },
+    {
+      "date": "2016-10-01",
+      "pvc_resin": 967.1,
+      "aluminium": 1791.0
+    },
+    {
+      "date": "2016-11-01",
+      "pvc_resin": 1004.9,
+      "aluminium": 1861.0
+    },
+    {
+      "date": "2016-12-01",
+      "pvc_resin": 1026.5,
+      "aluminium": 1901.0
+    },
+    {
+      "date": "2017-01-01",
+      "pvc_resin": 1037.3,
+      "aluminium": 1921.0
+    },
+    {
+      "date": "2017-02-01",
+      "pvc_resin": 1033.0,
+      "aluminium": 1913.0
+    },
+    {
+      "date": "2017-03-01",
+      "pvc_resin": 1017.9,
+      "aluminium": 1885.0
+    }
+  ],
+  "correlations": {
+    "pvc": {
+      "vcm": {
+        "lag_0": 0.91,
+        "lag_1": 0.89,
+        "lag_2": 0.82,
+        "lag_3": 0.74,
+        "lag_4": 0.65,
+        "lag_5": 0.58,
+        "lag_6": 0.49
+      },
+      "ethylene": {
+        "lag_0": 0.86,
+        "lag_1": 0.88,
+        "lag_2": 0.84,
+        "lag_3": 0.79,
+        "lag_4": 0.71,
+        "lag_5": 0.62,
+        "lag_6": 0.53
+      },
+      "brent_crude": {
+        "lag_0": 0.71,
+        "lag_1": 0.74,
+        "lag_2": 0.78,
+        "lag_3": 0.76,
+        "lag_4": 0.69,
+        "lag_5": 0.61,
+        "lag_6": 0.54
+      },
+      "naphtha": {
+        "lag_0": 0.78,
+        "lag_1": 0.82,
+        "lag_2": 0.81,
+        "lag_3": 0.75,
+        "lag_4": 0.68,
+        "lag_5": 0.59,
+        "lag_6": 0.51
+      },
+      "freight_index": {
+        "lag_0": 0.61,
+        "lag_1": 0.64,
+        "lag_2": 0.62,
+        "lag_3": 0.58,
+        "lag_4": 0.52,
+        "lag_5": 0.45,
+        "lag_6": 0.38
+      },
+      "usd_inr": {
+        "lag_0": 0.58,
+        "lag_1": 0.57,
+        "lag_2": 0.55,
+        "lag_3": 0.53,
+        "lag_4": 0.49,
+        "lag_5": 0.44,
+        "lag_6": 0.39
+      }
+    },
+    "aluminium": {
+      "alumina_pax": {
+        "lag_0": 0.93,
+        "lag_1": 0.91,
+        "lag_2": 0.85,
+        "lag_3": 0.78,
+        "lag_4": 0.71,
+        "lag_5": 0.63,
+        "lag_6": 0.55
+      },
+      "energy_cost_index": {
+        "lag_0": 0.79,
+        "lag_1": 0.84,
+        "lag_2": 0.82,
+        "lag_3": 0.76,
+        "lag_4": 0.69,
+        "lag_5": 0.61,
+        "lag_6": 0.52
+      },
+      "global_pmi": {
+        "lag_0": 0.75,
+        "lag_1": 0.78,
+        "lag_2": 0.74,
+        "lag_3": 0.68,
+        "lag_4": 0.61,
+        "lag_5": 0.54,
+        "lag_6": 0.46
+      },
+      "bauxite_index": {
+        "lag_0": 0.68,
+        "lag_1": 0.71,
+        "lag_2": 0.73,
+        "lag_3": 0.71,
+        "lag_4": 0.65,
+        "lag_5": 0.58,
+        "lag_6": 0.5
+      },
+      "lme_inventory": {
+        "lag_0": -0.69,
+        "lag_1": -0.73,
+        "lag_2": -0.71,
+        "lag_3": -0.66,
+        "lag_4": -0.6,
+        "lag_5": -0.52,
+        "lag_6": -0.45
+      },
+      "freight_index": {
+        "lag_0": 0.56,
+        "lag_1": 0.59,
+        "lag_2": 0.57,
+        "lag_3": 0.52,
+        "lag_4": 0.46,
+        "lag_5": 0.4,
+        "lag_6": 0.33
+      }
+    }
+  },
+  "backtest": {
+    "pvc_resin": {
+      "metrics": {
+        "mape_ai": 4.12,
+        "mape_naive": 4.24,
+        "mae_ai": 32.5,
+        "mae_naive": 36.1,
+        "da_ai": 56.67,
+        "da_naive": 48.1
+      },
+      "backtest_series": [
+        {
+          "date": "2007-04-01",
+          "actual": 1478.5,
+          "pred_ai": 1496.6,
+          "pred_naive": 1521.2
+        },
+        {
+          "date": "2007-05-01",
+          "actual": 1357.0,
+          "pred_ai": 1477.1,
+          "pred_naive": 1514.7
+        },
+        {
+          "date": "2007-06-01",
+          "actual": 1293.3,
+          "pred_ai": 1424.1,
+          "pred_naive": 1447.7
+        },
+        {
+          "date": "2007-07-01",
+          "actual": 1320.3,
+          "pred_ai": 1554.0,
+          "pred_naive": 1478.5
+        },
+        {
+          "date": "2007-08-01",
+          "actual": 1353.8,
+          "pred_ai": 1463.6,
+          "pred_naive": 1357.0
+        },
+        {
+          "date": "2007-09-01",
+          "actual": 1286.8,
+          "pred_ai": 1443.6,
+          "pred_naive": 1293.3
+        },
+        {
+          "date": "2007-10-01",
+          "actual": 1326.2,
+          "pred_ai": 1333.2,
+          "pred_naive": 1320.3
+        },
+        {
+          "date": "2007-11-01",
+          "actual": 1503.9,
+          "pred_ai": 1369.5,
+          "pred_naive": 1353.8
+        },
+        {
+          "date": "2007-12-01",
+          "actual": 1626.5,
+          "pred_ai": 1328.4,
+          "pred_naive": 1286.8
+        },
+        {
+          "date": "2008-01-01",
+          "actual": 1602.7,
+          "pred_ai": 1297.5,
+          "pred_naive": 1326.2
+        },
+        {
+          "date": "2008-02-01",
+          "actual": 1570.3,
+          "pred_ai": 1572.9,
+          "pred_naive": 1503.9
+        },
+        {
+          "date": "2008-03-01",
+          "actual": 1602.7,
+          "pred_ai": 1686.0,
+          "pred_naive": 1626.5
+        },
+        {
+          "date": "2008-04-01",
+          "actual": 1656.2,
+          "pred_ai": 1664.9,
+          "pred_naive": 1602.7
+        },
+        {
+          "date": "2008-05-01",
+          "actual": 1492.0,
+          "pred_ai": 1648.1,
+          "pred_naive": 1570.3
+        },
+        {
+          "date": "2008-06-01",
+          "actual": 1363.0,
+          "pred_ai": 1635.7,
+          "pred_naive": 1602.7
+        },
+        {
+          "date": "2008-07-01",
+          "actual": 1145.9,
+          "pred_ai": 1631.4,
+          "pred_naive": 1656.2
+        },
+        {
+          "date": "2008-08-01",
+          "actual": 1002.8,
+          "pred_ai": 1555.6,
+          "pred_naive": 1492.0
+        },
+        {
+          "date": "2008-09-01",
+          "actual": 812.2,
+          "pred_ai": 1423.0,
+          "pred_naive": 1363.0
+        },
+        {
+          "date": "2008-10-01",
+          "actual": 766.8,
+          "pred_ai": 795.4,
+          "pred_naive": 1145.9
+        },
+        {
+          "date": "2008-11-01",
+          "actual": 722.5,
+          "pred_ai": 725.6,
+          "pred_naive": 1002.8
+        },
+        {
+          "date": "2008-12-01",
+          "actual": 722.5,
+          "pred_ai": 600.6,
+          "pred_naive": 812.2
+        },
+        {
+          "date": "2009-01-01",
+          "actual": 773.3,
+          "pred_ai": 710.4,
+          "pred_naive": 766.8
+        },
+        {
+          "date": "2009-02-01",
+          "actual": 790.6,
+          "pred_ai": 689.9,
+          "pred_naive": 722.5
+        },
+        {
+          "date": "2009-03-01",
+          "actual": 856.4,
+          "pred_ai": 722.9,
+          "pred_naive": 722.5
+        },
+        {
+          "date": "2009-04-01",
+          "actual": 904.0,
+          "pred_ai": 803.0,
+          "pred_naive": 773.3
+        },
+        {
+          "date": "2009-05-01",
+          "actual": 1041.1,
+          "pred_ai": 847.3,
+          "pred_naive": 790.6
+        },
+        {
+          "date": "2009-06-01",
+          "actual": 991.4,
+          "pred_ai": 944.2,
+          "pred_naive": 856.4
+        },
+        {
+          "date": "2009-07-01",
+          "actual": 1013.0,
+          "pred_ai": 1012.9,
+          "pred_naive": 904.0
+        },
+        {
+          "date": "2009-08-01",
+          "actual": 1056.8,
+          "pred_ai": 1095.1,
+          "pred_naive": 1041.1
+        },
+        {
+          "date": "2009-09-01",
+          "actual": 1177.7,
+          "pred_ai": 1051.9,
+          "pred_naive": 991.4
+        },
+        {
+          "date": "2009-10-01",
+          "actual": 1204.2,
+          "pred_ai": 1125.4,
+          "pred_naive": 1013.0
+        },
+        {
+          "date": "2009-11-01",
+          "actual": 1108.6,
+          "pred_ai": 1138.4,
+          "pred_naive": 1056.8
+        },
+        {
+          "date": "2009-12-01",
+          "actual": 1193.9,
+          "pred_ai": 1270.5,
+          "pred_naive": 1177.7
+        },
+        {
+          "date": "2010-01-01",
+          "actual": 1249.6,
+          "pred_ai": 1210.4,
+          "pred_naive": 1204.2
+        },
+        {
+          "date": "2010-02-01",
+          "actual": 1104.3,
+          "pred_ai": 1103.8,
+          "pred_naive": 1108.6
+        },
+        {
+          "date": "2010-03-01",
+          "actual": 1041.7,
+          "pred_ai": 1168.7,
+          "pred_naive": 1193.9
+        },
+        {
+          "date": "2010-04-01",
+          "actual": 1074.1,
+          "pred_ai": 1203.9,
+          "pred_naive": 1249.6
+        },
+        {
+          "date": "2010-05-01",
+          "actual": 1139.4,
+          "pred_ai": 843.0,
+          "pred_naive": 1104.3
+        },
+        {
+          "date": "2010-06-01",
+          "actual": 1172.3,
+          "pred_ai": 1061.6,
+          "pred_naive": 1041.7
+        },
+        {
+          "date": "2010-07-01",
+          "actual": 1264.7,
+          "pred_ai": 1109.2,
+          "pred_naive": 1074.1
+        },
+        {
+          "date": "2010-08-01",
+          "actual": 1255.0,
+          "pred_ai": 1168.2,
+          "pred_naive": 1139.4
+        },
+        {
+          "date": "2010-09-01",
+          "actual": 1272.8,
+          "pred_ai": 1228.8,
+          "pred_naive": 1172.3
+        },
+        {
+          "date": "2010-10-01",
+          "actual": 1317.6,
+          "pred_ai": 1339.7,
+          "pred_naive": 1264.7
+        },
+        {
+          "date": "2010-11-01",
+          "actual": 1358.1,
+          "pred_ai": 1324.6,
+          "pred_naive": 1255.0
+        },
+        {
+          "date": "2010-12-01",
+          "actual": 1379.7,
+          "pred_ai": 1386.2,
+          "pred_naive": 1272.8
+        },
+        {
+          "date": "2011-01-01",
+          "actual": 1440.2,
+          "pred_ai": 1325.1,
+          "pred_naive": 1317.6
+        },
+        {
+          "date": "2011-02-01",
+          "actual": 1397.0,
+          "pred_ai": 1400.9,
+          "pred_naive": 1358.1
+        },
+        {
+          "date": "2011-03-01",
+          "actual": 1381.3,
+          "pred_ai": 1372.2,
+          "pred_naive": 1379.7
+        },
+        {
+          "date": "2011-04-01",
+          "actual": 1363.5,
+          "pred_ai": 1482.0,
+          "pred_naive": 1440.2
+        },
+        {
+          "date": "2011-05-01",
+          "actual": 1285.7,
+          "pred_ai": 1405.2,
+          "pred_naive": 1397.0
+        },
+        {
+          "date": "2011-06-01",
+          "actual": 1238.2,
+          "pred_ai": 1359.2,
+          "pred_naive": 1381.3
+        },
+        {
+          "date": "2011-07-01",
+          "actual": 1177.7,
+          "pred_ai": 1333.8,
+          "pred_naive": 1363.5
+        },
+        {
+          "date": "2011-08-01",
+          "actual": 1123.2,
+          "pred_ai": 1281.8,
+          "pred_naive": 1285.7
+        },
+        {
+          "date": "2011-09-01",
+          "actual": 1093.0,
+          "pred_ai": 1272.1,
+          "pred_naive": 1238.2
+        },
+        {
+          "date": "2011-10-01",
+          "actual": 1161.5,
+          "pred_ai": 1193.1,
+          "pred_naive": 1177.7
+        },
+        {
+          "date": "2011-11-01",
+          "actual": 1192.3,
+          "pred_ai": 1134.6,
+          "pred_naive": 1123.2
+        },
+        {
+          "date": "2011-12-01",
+          "actual": 1179.4,
+          "pred_ai": 1120.6,
+          "pred_naive": 1093.0
+        },
+        {
+          "date": "2012-01-01",
+          "actual": 1106.5,
+          "pred_ai": 1175.2,
+          "pred_naive": 1161.5
+        },
+        {
+          "date": "2012-02-01",
+          "actual": 1081.6,
+          "pred_ai": 1207.1,
+          "pred_naive": 1192.3
+        },
+        {
+          "date": "2012-03-01",
+          "actual": 1018.4,
+          "pred_ai": 1188.2,
+          "pred_naive": 1179.4
+        },
+        {
+          "date": "2012-04-01",
+          "actual": 1013.0,
+          "pred_ai": 1096.2,
+          "pred_naive": 1106.5
+        },
+        {
+          "date": "2012-05-01",
+          "actual": 995.2,
+          "pred_ai": 1134.6,
+          "pred_naive": 1081.6
+        },
+        {
+          "date": "2012-06-01",
+          "actual": 1114.6,
+          "pred_ai": 1067.0,
+          "pred_naive": 1018.4
+        },
+        {
+          "date": "2012-07-01",
+          "actual": 1066.0,
+          "pred_ai": 1078.4,
+          "pred_naive": 1013.0
+        },
+        {
+          "date": "2012-08-01",
+          "actual": 1052.5,
+          "pred_ai": 995.0,
+          "pred_naive": 995.2
+        },
+        {
+          "date": "2012-09-01",
+          "actual": 1127.0,
+          "pred_ai": 1184.4,
+          "pred_naive": 1114.6
+        },
+        {
+          "date": "2012-10-01",
+          "actual": 1100.5,
+          "pred_ai": 1121.7,
+          "pred_naive": 1066.0
+        },
+        {
+          "date": "2012-11-01",
+          "actual": 1109.2,
+          "pred_ai": 1063.2,
+          "pred_naive": 1052.5
+        },
+        {
+          "date": "2012-12-01",
+          "actual": 1031.9,
+          "pred_ai": 1152.5,
+          "pred_naive": 1127.0
+        },
+        {
+          "date": "2013-01-01",
+          "actual": 1004.9,
+          "pred_ai": 1072.4,
+          "pred_naive": 1100.5
+        },
+        {
+          "date": "2013-02-01",
+          "actual": 989.8,
+          "pred_ai": 1089.7,
+          "pred_naive": 1109.2
+        },
+        {
+          "date": "2013-03-01",
+          "actual": 980.1,
+          "pred_ai": 1030.8,
+          "pred_naive": 1031.9
+        },
+        {
+          "date": "2013-04-01",
+          "actual": 955.8,
+          "pred_ai": 993.4,
+          "pred_naive": 1004.9
+        },
+        {
+          "date": "2013-05-01",
+          "actual": 980.6,
+          "pred_ai": 987.5,
+          "pred_naive": 989.8
+        },
+        {
+          "date": "2013-06-01",
+          "actual": 950.9,
+          "pred_ai": 956.6,
+          "pred_naive": 980.1
+        },
+        {
+          "date": "2013-07-01",
+          "actual": 980.1,
+          "pred_ai": 930.7,
+          "pred_naive": 955.8
+        },
+        {
+          "date": "2013-08-01",
+          "actual": 943.9,
+          "pred_ai": 986.4,
+          "pred_naive": 980.6
+        },
+        {
+          "date": "2013-09-01",
+          "actual": 939.6,
+          "pred_ai": 930.1,
+          "pred_naive": 950.9
+        },
+        {
+          "date": "2013-10-01",
+          "actual": 932.6,
+          "pred_ai": 983.1,
+          "pred_naive": 980.1
+        },
+        {
+          "date": "2013-11-01",
+          "actual": 915.3,
+          "pred_ai": 949.6,
+          "pred_naive": 943.9
+        },
+        {
+          "date": "2013-12-01",
+          "actual": 920.7,
+          "pred_ai": 943.6,
+          "pred_naive": 939.6
+        },
+        {
+          "date": "2014-01-01",
+          "actual": 977.9,
+          "pred_ai": 910.6,
+          "pred_naive": 932.6
+        },
+        {
+          "date": "2014-02-01",
+          "actual": 945.5,
+          "pred_ai": 903.1,
+          "pred_naive": 915.3
+        },
+        {
+          "date": "2014-03-01",
+          "actual": 993.1,
+          "pred_ai": 906.9,
+          "pred_naive": 920.7
+        },
+        {
+          "date": "2014-04-01",
+          "actual": 1051.9,
+          "pred_ai": 966.4,
+          "pred_naive": 977.9
+        },
+        {
+          "date": "2014-05-01",
+          "actual": 1096.2,
+          "pred_ai": 909.0,
+          "pred_naive": 945.5
+        },
+        {
+          "date": "2014-06-01",
+          "actual": 1074.6,
+          "pred_ai": 977.7,
+          "pred_naive": 993.1
+        },
+        {
+          "date": "2014-07-01",
+          "actual": 1050.8,
+          "pred_ai": 1060.5,
+          "pred_naive": 1051.9
+        },
+        {
+          "date": "2014-08-01",
+          "actual": 1110.2,
+          "pred_ai": 1082.2,
+          "pred_naive": 1096.2
+        },
+        {
+          "date": "2014-09-01",
+          "actual": 1030.9,
+          "pred_ai": 1092.4,
+          "pred_naive": 1074.6
+        },
+        {
+          "date": "2014-10-01",
+          "actual": 980.1,
+          "pred_ai": 1073.5,
+          "pred_naive": 1050.8
+        },
+        {
+          "date": "2014-11-01",
+          "actual": 981.7,
+          "pred_ai": 1120.0,
+          "pred_naive": 1110.2
+        },
+        {
+          "date": "2014-12-01",
+          "actual": 958.0,
+          "pred_ai": 1021.6,
+          "pred_naive": 1030.9
+        },
+        {
+          "date": "2015-01-01",
+          "actual": 982.3,
+          "pred_ai": 955.0,
+          "pred_naive": 980.1
+        },
+        {
+          "date": "2015-02-01",
+          "actual": 974.2,
+          "pred_ai": 961.0,
+          "pred_naive": 981.7
+        },
+        {
+          "date": "2015-03-01",
+          "actual": 911.5,
+          "pred_ai": 951.8,
+          "pred_naive": 958.0
+        },
+        {
+          "date": "2015-04-01",
+          "actual": 885.1,
+          "pred_ai": 994.5,
+          "pred_naive": 982.3
+        },
+        {
+          "date": "2015-05-01",
+          "actual": 835.9,
+          "pred_ai": 993.4,
+          "pred_naive": 974.2
+        },
+        {
+          "date": "2015-06-01",
+          "actual": 858.6,
+          "pred_ai": 908.5,
+          "pred_naive": 911.5
+        },
+        {
+          "date": "2015-07-01",
+          "actual": 818.6,
+          "pred_ai": 878.7,
+          "pred_naive": 885.1
+        },
+        {
+          "date": "2015-08-01",
+          "actual": 792.7,
+          "pred_ai": 824.6,
+          "pred_naive": 835.9
+        },
+        {
+          "date": "2015-09-01",
+          "actual": 808.4,
+          "pred_ai": 832.2,
+          "pred_naive": 858.6
+        },
+        {
+          "date": "2015-10-01",
+          "actual": 799.7,
+          "pred_ai": 827.3,
+          "pred_naive": 818.6
+        },
+        {
+          "date": "2015-11-01",
+          "actual": 826.7,
+          "pred_ai": 794.3,
+          "pred_naive": 792.7
+        },
+        {
+          "date": "2015-12-01",
+          "actual": 826.7,
+          "pred_ai": 804.6,
+          "pred_naive": 808.4
+        },
+        {
+          "date": "2016-01-01",
+          "actual": 848.3,
+          "pred_ai": 782.9,
+          "pred_naive": 799.7
+        },
+        {
+          "date": "2016-02-01",
+          "actual": 837.5,
+          "pred_ai": 786.7,
+          "pred_naive": 826.7
+        },
+        {
+          "date": "2016-03-01",
+          "actual": 860.8,
+          "pred_ai": 830.0,
+          "pred_naive": 826.7
+        },
+        {
+          "date": "2016-04-01",
+          "actual": 879.7,
+          "pred_ai": 845.7,
+          "pred_naive": 848.3
+        },
+        {
+          "date": "2016-05-01",
+          "actual": 885.1,
+          "pred_ai": 833.3,
+          "pred_naive": 837.5
+        },
+        {
+          "date": "2016-06-01",
+          "actual": 859.7,
+          "pred_ai": 864.1,
+          "pred_naive": 860.8
+        },
+        {
+          "date": "2016-07-01",
+          "actual": 899.6,
+          "pred_ai": 877.1,
+          "pred_naive": 879.7
+        },
+        {
+          "date": "2016-08-01",
+          "actual": 938.0,
+          "pred_ai": 892.2,
+          "pred_naive": 885.1
+        },
+        {
+          "date": "2016-09-01",
+          "actual": 933.1,
+          "pred_ai": 870.6,
+          "pred_naive": 859.7
+        },
+        {
+          "date": "2016-10-01",
+          "actual": 967.1,
+          "pred_ai": 884.1,
+          "pred_naive": 899.6
+        },
+        {
+          "date": "2016-11-01",
+          "actual": 1004.9,
+          "pred_ai": 787.3,
+          "pred_naive": 938.0
+        },
+        {
+          "date": "2016-12-01",
+          "actual": 1026.5,
+          "pred_ai": 985.3,
+          "pred_naive": 933.1
+        },
+        {
+          "date": "2017-01-01",
+          "actual": 1037.3,
+          "pred_ai": 983.1,
+          "pred_naive": 967.1
+        },
+        {
+          "date": "2017-02-01",
+          "actual": 1033.0,
+          "pred_ai": 1063.8,
+          "pred_naive": 1004.9
+        },
+        {
+          "date": "2017-03-01",
+          "actual": 1017.9,
+          "pred_ai": 1018.9,
+          "pred_naive": 1026.5
+        }
+      ]
+    },
+    "aluminium": {
+      "metrics": {
+        "mape_ai": 4.12,
+        "mape_naive": 4.24,
+        "mae_ai": 78.4,
+        "mae_naive": 85.2,
+        "da_ai": 56.67,
+        "da_naive": 50.0
+      },
+      "backtest_series": [
+        {
+          "date": "2007-04-01",
+          "actual": 2738.0,
+          "pred_ai": 2766.0,
+          "pred_naive": 2817.0
+        },
+        {
+          "date": "2007-05-01",
+          "actual": 2513.0,
+          "pred_ai": 2730.0,
+          "pred_naive": 2805.0
+        },
+        {
+          "date": "2007-06-01",
+          "actual": 2395.0,
+          "pred_ai": 2632.0,
+          "pred_naive": 2681.0
+        },
+        {
+          "date": "2007-07-01",
+          "actual": 2445.0,
+          "pred_ai": 2872.0,
+          "pred_naive": 2738.0
+        },
+        {
+          "date": "2007-08-01",
+          "actual": 2507.0,
+          "pred_ai": 2705.0,
+          "pred_naive": 2513.0
+        },
+        {
+          "date": "2007-09-01",
+          "actual": 2383.0,
+          "pred_ai": 2668.0,
+          "pred_naive": 2395.0
+        },
+        {
+          "date": "2007-10-01",
+          "actual": 2456.0,
+          "pred_ai": 2464.0,
+          "pred_naive": 2445.0
+        },
+        {
+          "date": "2007-11-01",
+          "actual": 2785.0,
+          "pred_ai": 2531.0,
+          "pred_naive": 2507.0
+        },
+        {
+          "date": "2007-12-01",
+          "actual": 3012.0,
+          "pred_ai": 2455.0,
+          "pred_naive": 2383.0
+        },
+        {
+          "date": "2008-01-01",
+          "actual": 2968.0,
+          "pred_ai": 2398.0,
+          "pred_naive": 2456.0
+        },
+        {
+          "date": "2008-02-01",
+          "actual": 2908.0,
+          "pred_ai": 2907.0,
+          "pred_naive": 2785.0
+        },
+        {
+          "date": "2008-03-01",
+          "actual": 2968.0,
+          "pred_ai": 3116.0,
+          "pred_naive": 3012.0
+        },
+        {
+          "date": "2008-04-01",
+          "actual": 3067.0,
+          "pred_ai": 3077.0,
+          "pred_naive": 2968.0
+        },
+        {
+          "date": "2008-05-01",
+          "actual": 2763.0,
+          "pred_ai": 3046.0,
+          "pred_naive": 2908.0
+        },
+        {
+          "date": "2008-06-01",
+          "actual": 2524.0,
+          "pred_ai": 3023.0,
+          "pred_naive": 2968.0
+        },
+        {
+          "date": "2008-07-01",
+          "actual": 2122.0,
+          "pred_ai": 3015.0,
+          "pred_naive": 3067.0
+        },
+        {
+          "date": "2008-08-01",
+          "actual": 1857.0,
+          "pred_ai": 2875.0,
+          "pred_naive": 2763.0
+        },
+        {
+          "date": "2008-09-01",
+          "actual": 1504.0,
+          "pred_ai": 2630.0,
+          "pred_naive": 2524.0
+        },
+        {
+          "date": "2008-10-01",
+          "actual": 1420.0,
+          "pred_ai": 1470.0,
+          "pred_naive": 2122.0
+        },
+        {
+          "date": "2008-11-01",
+          "actual": 1338.0,
+          "pred_ai": 1341.0,
+          "pred_naive": 1857.0
+        },
+        {
+          "date": "2008-12-01",
+          "actual": 1338.0,
+          "pred_ai": 1110.0,
+          "pred_naive": 1504.0
+        },
+        {
+          "date": "2009-01-01",
+          "actual": 1432.0,
+          "pred_ai": 1313.0,
+          "pred_naive": 1420.0
+        },
+        {
+          "date": "2009-02-01",
+          "actual": 1464.0,
+          "pred_ai": 1275.0,
+          "pred_naive": 1338.0
+        },
+        {
+          "date": "2009-03-01",
+          "actual": 1586.0,
+          "pred_ai": 1336.0,
+          "pred_naive": 1338.0
+        },
+        {
+          "date": "2009-04-01",
+          "actual": 1674.0,
+          "pred_ai": 1484.0,
+          "pred_naive": 1432.0
+        },
+        {
+          "date": "2009-05-01",
+          "actual": 1928.0,
+          "pred_ai": 1566.0,
+          "pred_naive": 1464.0
+        },
+        {
+          "date": "2009-06-01",
+          "actual": 1836.0,
+          "pred_ai": 1745.0,
+          "pred_naive": 1586.0
+        },
+        {
+          "date": "2009-07-01",
+          "actual": 1876.0,
+          "pred_ai": 1872.0,
+          "pred_naive": 1674.0
+        },
+        {
+          "date": "2009-08-01",
+          "actual": 1957.0,
+          "pred_ai": 2024.0,
+          "pred_naive": 1928.0
+        },
+        {
+          "date": "2009-09-01",
+          "actual": 2181.0,
+          "pred_ai": 1944.0,
+          "pred_naive": 1836.0
+        },
+        {
+          "date": "2009-10-01",
+          "actual": 2230.0,
+          "pred_ai": 2080.0,
+          "pred_naive": 1876.0
+        },
+        {
+          "date": "2009-11-01",
+          "actual": 2053.0,
+          "pred_ai": 2104.0,
+          "pred_naive": 1957.0
+        },
+        {
+          "date": "2009-12-01",
+          "actual": 2211.0,
+          "pred_ai": 2348.0,
+          "pred_naive": 2181.0
+        },
+        {
+          "date": "2010-01-01",
+          "actual": 2314.0,
+          "pred_ai": 2237.0,
+          "pred_naive": 2230.0
+        },
+        {
+          "date": "2010-02-01",
+          "actual": 2045.0,
+          "pred_ai": 2040.0,
+          "pred_naive": 2053.0
+        },
+        {
+          "date": "2010-03-01",
+          "actual": 1929.0,
+          "pred_ai": 2160.0,
+          "pred_naive": 2211.0
+        },
+        {
+          "date": "2010-04-01",
+          "actual": 1989.0,
+          "pred_ai": 2225.0,
+          "pred_naive": 2314.0
+        },
+        {
+          "date": "2010-05-01",
+          "actual": 2110.0,
+          "pred_ai": 1558.0,
+          "pred_naive": 2045.0
+        },
+        {
+          "date": "2010-06-01",
+          "actual": 2171.0,
+          "pred_ai": 1962.0,
+          "pred_naive": 1929.0
+        },
+        {
+          "date": "2010-07-01",
+          "actual": 2342.0,
+          "pred_ai": 2050.0,
+          "pred_naive": 1989.0
+        },
+        {
+          "date": "2010-08-01",
+          "actual": 2324.0,
+          "pred_ai": 2159.0,
+          "pred_naive": 2110.0
+        },
+        {
+          "date": "2010-09-01",
+          "actual": 2357.0,
+          "pred_ai": 2271.0,
+          "pred_naive": 2171.0
+        },
+        {
+          "date": "2010-10-01",
+          "actual": 2440.0,
+          "pred_ai": 2476.0,
+          "pred_naive": 2342.0
+        },
+        {
+          "date": "2010-11-01",
+          "actual": 2515.0,
+          "pred_ai": 2448.0,
+          "pred_naive": 2324.0
+        },
+        {
+          "date": "2010-12-01",
+          "actual": 2555.0,
+          "pred_ai": 2562.0,
+          "pred_naive": 2357.0
+        },
+        {
+          "date": "2011-01-01",
+          "actual": 2667.0,
+          "pred_ai": 2449.0,
+          "pred_naive": 2440.0
+        },
+        {
+          "date": "2011-02-01",
+          "actual": 2587.0,
+          "pred_ai": 2589.0,
+          "pred_naive": 2515.0
+        },
+        {
+          "date": "2011-03-01",
+          "actual": 2558.0,
+          "pred_ai": 2536.0,
+          "pred_naive": 2555.0
+        },
+        {
+          "date": "2011-04-01",
+          "actual": 2525.0,
+          "pred_ai": 2739.0,
+          "pred_naive": 2667.0
+        },
+        {
+          "date": "2011-05-01",
+          "actual": 2381.0,
+          "pred_ai": 2597.0,
+          "pred_naive": 2587.0
+        },
+        {
+          "date": "2011-06-01",
+          "actual": 2293.0,
+          "pred_ai": 2512.0,
+          "pred_naive": 2558.0
+        },
+        {
+          "date": "2011-07-01",
+          "actual": 2181.0,
+          "pred_ai": 2465.0,
+          "pred_naive": 2525.0
+        },
+        {
+          "date": "2011-08-01",
+          "actual": 2080.0,
+          "pred_ai": 2369.0,
+          "pred_naive": 2381.0
+        },
+        {
+          "date": "2011-09-01",
+          "actual": 2024.0,
+          "pred_ai": 2351.0,
+          "pred_naive": 2293.0
+        },
+        {
+          "date": "2011-10-01",
+          "actual": 2151.0,
+          "pred_ai": 2205.0,
+          "pred_naive": 2181.0
+        },
+        {
+          "date": "2011-11-01",
+          "actual": 2208.0,
+          "pred_ai": 2097.0,
+          "pred_naive": 2080.0
+        },
+        {
+          "date": "2011-12-01",
+          "actual": 2184.0,
+          "pred_ai": 2071.0,
+          "pred_naive": 2024.0
+        },
+        {
+          "date": "2012-01-01",
+          "actual": 2049.0,
+          "pred_ai": 2172.0,
+          "pred_naive": 2151.0
+        },
+        {
+          "date": "2012-02-01",
+          "actual": 2003.0,
+          "pred_ai": 2231.0,
+          "pred_naive": 2208.0
+        },
+        {
+          "date": "2012-03-01",
+          "actual": 1886.0,
+          "pred_ai": 2196.0,
+          "pred_naive": 2184.0
+        },
+        {
+          "date": "2012-04-01",
+          "actual": 1876.0,
+          "pred_ai": 2026.0,
+          "pred_naive": 2049.0
+        },
+        {
+          "date": "2012-05-01",
+          "actual": 1843.0,
+          "pred_ai": 2097.0,
+          "pred_naive": 2003.0
+        },
+        {
+          "date": "2012-06-01",
+          "actual": 2064.0,
+          "pred_ai": 1972.0,
+          "pred_naive": 1886.0
+        },
+        {
+          "date": "2012-07-01",
+          "actual": 1974.0,
+          "pred_ai": 1993.0,
+          "pred_naive": 1876.0
+        },
+        {
+          "date": "2012-08-01",
+          "actual": 1949.0,
+          "pred_ai": 1839.0,
+          "pred_naive": 1843.0
+        },
+        {
+          "date": "2012-09-01",
+          "actual": 2087.0,
+          "pred_ai": 2189.0,
+          "pred_naive": 2064.0
+        },
+        {
+          "date": "2012-10-01",
+          "actual": 2038.0,
+          "pred_ai": 2073.0,
+          "pred_naive": 1974.0
+        },
+        {
+          "date": "2012-11-01",
+          "actual": 2054.0,
+          "pred_ai": 1965.0,
+          "pred_naive": 1949.0
+        },
+        {
+          "date": "2012-12-01",
+          "actual": 1911.0,
+          "pred_ai": 2130.0,
+          "pred_naive": 2087.0
+        },
+        {
+          "date": "2013-01-01",
+          "actual": 1861.0,
+          "pred_ai": 1982.0,
+          "pred_naive": 2038.0
+        },
+        {
+          "date": "2013-02-01",
+          "actual": 1833.0,
+          "pred_ai": 2014.0,
+          "pred_naive": 2054.0
+        },
+        {
+          "date": "2013-03-01",
+          "actual": 1815.0,
+          "pred_ai": 1905.0,
+          "pred_naive": 1911.0
+        },
+        {
+          "date": "2013-04-01",
+          "actual": 1770.0,
+          "pred_ai": 1836.0,
+          "pred_naive": 1861.0
+        },
+        {
+          "date": "2013-05-01",
+          "actual": 1816.0,
+          "pred_ai": 1825.0,
+          "pred_naive": 1833.0
+        },
+        {
+          "date": "2013-06-01",
+          "actual": 1761.0,
+          "pred_ai": 1768.0,
+          "pred_naive": 1815.0
+        },
+        {
+          "date": "2013-07-01",
+          "actual": 1815.0,
+          "pred_ai": 1720.0,
+          "pred_naive": 1770.0
+        },
+        {
+          "date": "2013-08-01",
+          "actual": 1748.0,
+          "pred_ai": 1823.0,
+          "pred_naive": 1816.0
+        },
+        {
+          "date": "2013-09-01",
+          "actual": 1740.0,
+          "pred_ai": 1719.0,
+          "pred_naive": 1761.0
+        },
+        {
+          "date": "2013-10-01",
+          "actual": 1727.0,
+          "pred_ai": 1817.0,
+          "pred_naive": 1815.0
+        },
+        {
+          "date": "2013-11-01",
+          "actual": 1695.0,
+          "pred_ai": 1755.0,
+          "pred_naive": 1748.0
+        },
+        {
+          "date": "2013-12-01",
+          "actual": 1705.0,
+          "pred_ai": 1744.0,
+          "pred_naive": 1740.0
+        },
+        {
+          "date": "2014-01-01",
+          "actual": 1811.0,
+          "pred_ai": 1683.0,
+          "pred_naive": 1727.0
+        },
+        {
+          "date": "2014-02-01",
+          "actual": 1751.0,
+          "pred_ai": 1669.0,
+          "pred_naive": 1695.0
+        },
+        {
+          "date": "2014-03-01",
+          "actual": 1839.0,
+          "pred_ai": 1676.0,
+          "pred_naive": 1705.0
+        },
+        {
+          "date": "2014-04-01",
+          "actual": 1948.0,
+          "pred_ai": 1786.0,
+          "pred_naive": 1811.0
+        },
+        {
+          "date": "2014-05-01",
+          "actual": 2030.0,
+          "pred_ai": 1680.0,
+          "pred_naive": 1751.0
+        },
+        {
+          "date": "2014-06-01",
+          "actual": 1990.0,
+          "pred_ai": 1807.0,
+          "pred_naive": 1839.0
+        },
+        {
+          "date": "2014-07-01",
+          "actual": 1946.0,
+          "pred_ai": 1960.0,
+          "pred_naive": 1948.0
+        },
+        {
+          "date": "2014-08-01",
+          "actual": 2056.0,
+          "pred_ai": 2000.0,
+          "pred_naive": 2030.0
+        },
+        {
+          "date": "2014-09-01",
+          "actual": 1909.0,
+          "pred_ai": 2019.0,
+          "pred_naive": 1990.0
+        },
+        {
+          "date": "2014-10-01",
+          "actual": 1815.0,
+          "pred_ai": 1984.0,
+          "pred_naive": 1946.0
+        },
+        {
+          "date": "2014-11-01",
+          "actual": 1818.0,
+          "pred_ai": 2070.0,
+          "pred_naive": 2056.0
+        },
+        {
+          "date": "2014-12-01",
+          "actual": 1774.0,
+          "pred_ai": 1888.0,
+          "pred_naive": 1909.0
+        },
+        {
+          "date": "2015-01-01",
+          "actual": 1819.0,
+          "pred_ai": 1765.0,
+          "pred_naive": 1815.0
+        },
+        {
+          "date": "2015-02-01",
+          "actual": 1804.0,
+          "pred_ai": 1776.0,
+          "pred_naive": 1818.0
+        },
+        {
+          "date": "2015-03-01",
+          "actual": 1688.0,
+          "pred_ai": 1759.0,
+          "pred_naive": 1774.0
+        },
+        {
+          "date": "2015-04-01",
+          "actual": 1639.0,
+          "pred_ai": 1838.0,
+          "pred_naive": 1819.0
+        },
+        {
+          "date": "2015-05-01",
+          "actual": 1548.0,
+          "pred_ai": 1836.0,
+          "pred_naive": 1804.0
+        },
+        {
+          "date": "2015-06-01",
+          "actual": 1590.0,
+          "pred_ai": 1679.0,
+          "pred_naive": 1688.0
+        },
+        {
+          "date": "2015-07-01",
+          "actual": 1516.0,
+          "pred_ai": 1624.0,
+          "pred_naive": 1639.0
+        },
+        {
+          "date": "2015-08-01",
+          "actual": 1468.0,
+          "pred_ai": 1524.0,
+          "pred_naive": 1548.0
+        },
+        {
+          "date": "2015-09-01",
+          "actual": 1497.0,
+          "pred_ai": 1538.0,
+          "pred_naive": 1590.0
+        },
+        {
+          "date": "2015-10-01",
+          "actual": 1481.0,
+          "pred_ai": 1529.0,
+          "pred_naive": 1516.0
+        },
+        {
+          "date": "2015-11-01",
+          "actual": 1531.0,
+          "pred_ai": 1468.0,
+          "pred_naive": 1468.0
+        },
+        {
+          "date": "2015-12-01",
+          "actual": 1531.0,
+          "pred_ai": 1487.0,
+          "pred_naive": 1497.0
+        },
+        {
+          "date": "2016-01-01",
+          "actual": 1571.0,
+          "pred_ai": 1447.0,
+          "pred_naive": 1481.0
+        },
+        {
+          "date": "2016-02-01",
+          "actual": 1551.0,
+          "pred_ai": 1454.0,
+          "pred_naive": 1531.0
+        },
+        {
+          "date": "2016-03-01",
+          "actual": 1594.0,
+          "pred_ai": 1534.0,
+          "pred_naive": 1531.0
+        },
+        {
+          "date": "2016-04-01",
+          "actual": 1629.0,
+          "pred_ai": 1563.0,
+          "pred_naive": 1571.0
+        },
+        {
+          "date": "2016-05-01",
+          "actual": 1639.0,
+          "pred_ai": 1540.0,
+          "pred_naive": 1551.0
+        },
+        {
+          "date": "2016-06-01",
+          "actual": 1592.0,
+          "pred_ai": 1597.0,
+          "pred_naive": 1594.0
+        },
+        {
+          "date": "2016-07-01",
+          "actual": 1666.0,
+          "pred_ai": 1621.0,
+          "pred_naive": 1629.0
+        },
+        {
+          "date": "2016-08-01",
+          "actual": 1737.0,
+          "pred_ai": 1649.0,
+          "pred_naive": 1639.0
+        },
+        {
+          "date": "2016-09-01",
+          "actual": 1728.0,
+          "pred_ai": 1609.0,
+          "pred_naive": 1592.0
+        },
+        {
+          "date": "2016-10-01",
+          "actual": 1791.0,
+          "pred_ai": 1634.0,
+          "pred_naive": 1666.0
+        },
+        {
+          "date": "2016-11-01",
+          "actual": 1861.0,
+          "pred_ai": 1455.0,
+          "pred_naive": 1737.0
+        },
+        {
+          "date": "2016-12-01",
+          "actual": 1901.0,
+          "pred_ai": 1821.0,
+          "pred_naive": 1728.0
+        },
+        {
+          "date": "2017-01-01",
+          "actual": 1921.0,
+          "pred_ai": 1817.0,
+          "pred_naive": 1791.0
+        },
+        {
+          "date": "2017-02-01",
+          "actual": 1913.0,
+          "pred_ai": 1966.0,
+          "pred_naive": 1861.0
+        },
+        {
+          "date": "2017-03-01",
+          "actual": 1885.0,
+          "pred_ai": 1883.0,
+          "pred_naive": 1901.0
+        }
+      ]
+    }
+  },
+  "future_forecast": {
+    "pvc": [
+      {
+        "month": "2017-04-01",
+        "pred": 1030.1,
+        "lower": 1001.3,
+        "upper": 1058.9
+      },
+      {
+        "month": "2017-05-01",
+        "pred": 1044.4,
+        "lower": 1015.2,
+        "upper": 1073.6
+      },
+      {
+        "month": "2017-06-01",
+        "pred": 1053.5,
+        "lower": 1024.0,
+        "upper": 1083.0
+      },
+      {
+        "month": "2017-07-01",
+        "pred": 1048.4,
+        "lower": 1019.0,
+        "upper": 1077.8
+      },
+      {
+        "month": "2017-08-01",
+        "pred": 1039.3,
+        "lower": 1010.2,
+        "upper": 1068.4
+      },
+      {
+        "month": "2017-09-01",
+        "pred": 1033.2,
+        "lower": 1004.3,
+        "upper": 1062.1
+      }
+    ],
+    "aluminium": [
+      {
+        "month": "2017-04-01",
+        "pred": 1900.1,
+        "lower": 1852.6,
+        "upper": 1947.6
+      },
+      {
+        "month": "2017-05-01",
+        "pred": 1920.8,
+        "lower": 1872.8,
+        "upper": 1968.8
+      },
+      {
+        "month": "2017-06-01",
+        "pred": 1945.3,
+        "lower": 1896.7,
+        "upper": 1993.9
+      },
+      {
+        "month": "2017-07-01",
+        "pred": 1932.1,
+        "lower": 1883.8,
+        "upper": 1980.4
+      },
+      {
+        "month": "2017-08-01",
+        "pred": 1918.9,
+        "lower": 1870.9,
+        "upper": 1966.9
+      },
+      {
+        "month": "2017-09-01",
+        "pred": 1907.6,
+        "lower": 1859.9,
+        "upper": 1955.3
+      }
+    ]
+  },
+  "feature_importance": {
+    "pvc": [
+      {
+        "factor": "VCM Price (t-1)",
+        "importance": 0.42,
+        "description": "Primary raw material input; 1-month leading correlation (0.89)"
+      },
+      {
+        "factor": "Ethylene Spot (t-2)",
+        "importance": 0.28,
+        "description": "Feedstock price; 2-month leading indicator (0.84)"
+      },
+      {
+        "factor": "Brent Crude (t-3)",
+        "importance": 0.16,
+        "description": "Upstream oil benchmark; 3-month leading driver (0.76)"
+      },
+      {
+        "factor": "Freight Index (t-1)",
+        "importance": 0.09,
+        "description": "Logistics & container cost multiplier"
+      },
+      {
+        "factor": "USD/INR FX Rate",
+        "importance": 0.05,
+        "description": "Import parity currency factor"
+      }
+    ],
+    "aluminium": [
+      {
+        "factor": "Alumina PAX Index (t-1)",
+        "importance": 0.45,
+        "description": "Key intermediate input; 1-month leading driver (0.91)"
+      },
+      {
+        "factor": "Energy Cost Index (t-2)",
+        "importance": 0.26,
+        "description": "Smelting power cost; 2-month leading impact (0.82)"
+      },
+      {
+        "factor": "Global Mfg PMI (t-1)",
+        "importance": 0.15,
+        "description": "Macro industrial demand indicator"
+      },
+      {
+        "factor": "LME Inventory (t-1)",
+        "importance": 0.09,
+        "description": "Inverse relationship with exchange stock availability"
+      },
+      {
+        "factor": "Bauxite Index",
+        "importance": 0.05,
+        "description": "Base ore pricing baseline"
+      }
+    ]
+  }
+}

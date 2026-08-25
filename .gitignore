@@ -1,0 +1,8 @@
+node_modules/
+client/node_modules/
+dist/
+client/dist/
+.DS_Store
+*.log
+.system_generated/
+client/video_recordings/
