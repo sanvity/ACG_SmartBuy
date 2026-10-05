@@ -62,8 +62,9 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
     a.click();
   };
 
-  // Recent 12 months history + 6-month future
+  // Recent 12 months history + forecast curve up to selectedHorizon
   const recentHistory = histData.slice(-12);
+  const visibleFutureAlu = futureData.aluminium.slice(0, horizonIdx + 1);
   const chartData = [
     ...recentHistory.map(d => ({
       date: d.date.substring(0, 7),
@@ -72,7 +73,7 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
       pvcForecast: null,
       aluForecast: null,
     })),
-    ...futureData.aluminium.map((d, i) => {
+    ...visibleFutureAlu.map((d, i) => {
       const pvcItem = futureData.pvc_resin[i];
       return {
         date: d.target_date.substring(0, 7),
@@ -271,10 +272,10 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
           <div>
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              Raw Material Price Curves: Historical & 6-Month Ensemble Forecast
+              Raw Material Price Curves: Historical & {selectedHorizon}-Month Ensemble Forecast
             </h2>
             <p className="text-xs text-gray-400">
-              Solid lines = actual historical prices ($/MT); dashed lines = 6-month model forecast curves.
+              Solid lines = actual historical prices ($/MT); dashed lines = {selectedHorizon}-month model forecast curve.
             </p>
           </div>
           <div className="flex items-center gap-2 bg-[#0E0E14] p-1 rounded-lg border border-red-950 text-xs">
@@ -294,7 +295,7 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
               onClick={() => setSelectedMaterial('alu')}
               className={`px-3 py-1 rounded-md transition ${selectedMaterial === 'alu' ? 'bg-rose-600 text-white font-semibold shadow' : 'text-gray-400 hover:text-white'}`}
             >
-              LME Aluminium
+              Aluminium Spot
             </button>
           </div>
         </div>
@@ -313,14 +314,14 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
               {(selectedMaterial === 'all' || selectedMaterial === 'pvc') && (
                 <>
                   <Line name="PVC Historical ($/MT)" type="monotone" dataKey="pvcActual" stroke="#DC2626" strokeWidth={2.2} dot={{ r: 3 }} />
-                  <Line name="PVC 6M Forecast ($/MT)" type="monotone" dataKey="pvcForecast" stroke="#E53E3E" strokeWidth={2.2} strokeDasharray="5 5" dot={{ r: 4 }} />
+                  <Line name={`PVC ${selectedHorizon}M Forecast ($/MT)`} type="monotone" dataKey="pvcForecast" stroke="#E53E3E" strokeWidth={2.2} strokeDasharray="5 5" dot={{ r: 4 }} />
                 </>
               )}
 
               {(selectedMaterial === 'all' || selectedMaterial === 'alu') && (
                 <>
                   <Line name="Aluminium Historical ($/MT)" type="monotone" dataKey="aluActual" stroke="#9F1239" strokeWidth={2.2} dot={{ r: 3 }} />
-                  <Line name="Aluminium 6M Forecast ($/MT)" type="monotone" dataKey="aluForecast" stroke="#BE123C" strokeWidth={2.2} strokeDasharray="5 5" dot={{ r: 4 }} />
+                  <Line name={`Aluminium ${selectedHorizon}M Forecast ($/MT)`} type="monotone" dataKey="aluForecast" stroke="#BE123C" strokeWidth={2.2} strokeDasharray="5 5" dot={{ r: 4 }} />
                 </>
               )}
             </LineChart>
@@ -331,7 +332,7 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
       {/* Next 6 Month Forecast Table Breakdown */}
       <div className="glass-panel p-6">
         <h3 className="text-base font-bold text-white mb-3 flex items-center gap-2">
-          <Flame className="w-4 h-4 text-red-500" /> Granular 6-Month Forecast & Prediction Interval Table
+          <Flame className="w-4 h-4 text-red-500" /> Granular Multi-Horizon Forecast & Prediction Interval Table
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
@@ -351,10 +352,21 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
                 const pvcItem = futureData.pvc_resin[idx];
                 const aluChange = ((aluItem.pred_ensemble - currentAlu) / currentAlu) * 100;
                 const pvcChange = ((pvcItem.pred_ensemble - currentPVC) / currentPVC) * 100;
+                const isSelectedHorizon = aluItem.horizon === parseInt(selectedHorizon);
 
                 return (
-                  <tr key={aluItem.target_date} className="hover:bg-red-950/20 transition">
-                    <td className="p-3 font-bold text-red-400">H+{aluItem.horizon}</td>
+                  <tr 
+                    key={aluItem.target_date} 
+                    className={`transition ${isSelectedHorizon ? 'bg-red-950/70 border-l-4 border-red-500 font-bold text-white shadow' : 'hover:bg-red-950/20 text-gray-300'}`}
+                  >
+                    <td className="p-3 font-bold text-red-400 flex items-center gap-1.5 font-sans">
+                      H+{aluItem.horizon}
+                      {isSelectedHorizon && (
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-red-600 text-white uppercase tracking-wider">
+                          Active Target
+                        </span>
+                      )}
+                    </td>
                     <td className="p-3 font-semibold text-white font-sans">{aluItem.target_date}</td>
                     <td className="p-3">
                       <span className="font-bold text-red-400">${pvcItem.pred_ensemble}</span>

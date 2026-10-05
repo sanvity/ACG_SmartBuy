@@ -138,13 +138,18 @@ export default function CausalityMatrix() {
               <tr className="border-b border-red-950 text-gray-400 bg-[#0E0E14]">
                 <th className="p-3">External Indicator</th>
                 <th className="p-3">Category</th>
-                <th className="p-3 text-center">Lag 0</th>
-                <th className="p-3 text-center bg-red-950/40 text-red-300 font-bold">Lag -1 Mo</th>
-                <th className="p-3 text-center bg-red-950/40 text-red-300 font-bold">Lag -2 Mo</th>
-                <th className="p-3 text-center">Lag -3 Mo</th>
-                <th className="p-3 text-center">Lag -4 Mo</th>
-                <th className="p-3 text-center">Lag -5 Mo</th>
-                <th className="p-3 text-center">Lag -6 Mo</th>
+                {[0, 1, 2, 3, 4, 5, 6].map((lag) => (
+                  <th 
+                    key={lag} 
+                    className={`p-3 text-center transition ${
+                      selectedLag === lag 
+                        ? 'bg-red-900 text-white font-extrabold shadow border-b-2 border-red-500' 
+                        : ''
+                    }`}
+                  >
+                    {lag === 0 ? 'Lag 0' : `Lag -${lag} Mo`}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-red-950 text-gray-300 font-mono">
@@ -155,13 +160,22 @@ export default function CausalityMatrix() {
                   <tr key={ind.key} className="hover:bg-red-950/20 transition">
                     <td className="p-3 font-semibold text-white font-sans">{ind.name}</td>
                     <td className="p-3 text-gray-400 font-sans">{ind.category}</td>
-                    <td className="p-3 text-center">{corrData['lag_0'] ?? '-'}</td>
-                    <td className="p-3 text-center bg-red-950/40 text-red-300 font-bold">{corrData['lag_1'] ?? '-'}</td>
-                    <td className="p-3 text-center bg-red-950/40 text-red-300 font-bold">{corrData['lag_2'] ?? '-'}</td>
-                    <td className="p-3 text-center">{corrData['lag_3'] ?? '-'}</td>
-                    <td className="p-3 text-center">{corrData['lag_4'] ?? '-'}</td>
-                    <td className="p-3 text-center">{corrData['lag_5'] ?? '-'}</td>
-                    <td className="p-3 text-center">{corrData['lag_6'] ?? '-'}</td>
+                    {[0, 1, 2, 3, 4, 5, 6].map((lag) => {
+                      const val = corrData[`lag_${lag}`];
+                      const isSelected = selectedLag === lag;
+                      return (
+                        <td 
+                          key={lag} 
+                          className={`p-3 text-center transition ${
+                            isSelected 
+                              ? 'bg-red-950/80 text-red-300 font-bold border-x border-red-800/40' 
+                              : ''
+                          }`}
+                        >
+                          {val ?? '-'}
+                        </td>
+                      );
+                    })}
                   </tr>
                 );
               })}
