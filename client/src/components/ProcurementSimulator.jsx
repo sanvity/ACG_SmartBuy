@@ -89,22 +89,29 @@ export default function ProcurementSimulator() {
 
     // --- AI SMART BUY POLICY ---
     const availStockAI = prevStockAI + receiptsInTransit;
-    const priceChangePct = ((spotBenchmark - currentSpotPrice) / currentSpotPrice) * 100;
     
-    // Strategic Order Calculation
+    // Look ahead across remaining forecast horizon to detect if current month is cheaper than upcoming months
+    const futurePricesInHorizon = futureForecasts.slice(m - 1).map(f => f.pred_ensemble || currentSpotPrice);
+    const maxFuturePrice = Math.max(...futurePricesInHorizon);
+    const minFuturePrice = Math.min(...futurePricesInHorizon);
+    
+    const futureSurgePct = ((maxFuturePrice - spotBenchmark) / spotBenchmark) * 100;
+    const futureDropPct = ((spotBenchmark - minFuturePrice) / spotBenchmark) * 100;
+    const overallChangePct = ((spotBenchmark - currentSpotPrice) / currentSpotPrice) * 100;
+
     let action = "STAGGER REPLENISHMENT";
     let orderAI = 0;
 
     const netNeedAI = Math.max(0, rawConsumption + targetSafetyStockTons - availStockAI);
 
-    if (priceChangePct > 2.0) {
-      // Forward Lock / Buy Forward: Order 120% of net need up to storage capacity
+    if (futureSurgePct > 0.8 || overallChangePct > 0.8) {
+      // Current month price is lower than upcoming surge -> Lock forward inventory early
       action = "BUY FORWARD / PRICE LOCK";
-      const targetOrder = Math.max(Number(moqTons), Math.round(netNeedAI * 1.3));
+      const targetOrder = Math.max(Number(moqTons), Math.round((rawConsumption + netNeedAI) * 1.25));
       const maxAllowedByCap = Math.max(0, Number(storageCapacity) + rawConsumption - availStockAI);
       orderAI = Math.min(targetOrder, maxAllowedByCap);
-    } else if (priceChangePct < -2.0) {
-      // Defer / Minimum Buy: Order strictly minimum to maintain safety stock
+    } else if (futureDropPct > 0.8 || overallChangePct < -0.8) {
+      // Prices expected to fall further -> Defer non-critical purchases
       action = "DEFER / MINIMUM REPLENISHMENT";
       orderAI = netNeedAI > 0 ? Math.max(Number(moqTons), netNeedAI) : 0;
     } else {
