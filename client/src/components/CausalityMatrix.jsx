@@ -29,15 +29,12 @@ export default function CausalityMatrix() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Top Header */}
-      <div className="glass-panel p-6 border-l-4 border-red-800">
-        <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
-          <Network className="w-4 h-4" /> External Market Indicators & Lead-Lag Correlations
-        </div>
-        <h1 className="text-2xl font-bold text-white">Macroeconomic Drivers & Cross-Correlation Matrix</h1>
-        <p className="text-gray-400 text-sm mt-1">
-          Pearson cross-correlations evaluated across aligned monthly log-returns ($\Delta \ln P$) for lags 0 to -6 months.
+      <div className="glass-panel p-4 border-l-4 border-red-800">
+        <h1 className="text-xl font-bold text-white">Indicator Lead-Lag Correlation Matrix</h1>
+        <p className="text-gray-400 text-xs mt-0.5">
+          Pearson cross-correlations evaluated across time-aligned monthly log returns for lags 0 to -6 months.
         </p>
       </div>
 

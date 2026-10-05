@@ -93,48 +93,45 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
   const hasAluSurge = aluDiff > 2.0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="glass-panel p-4 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
         <div>
-          <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
-            <Flame className="w-4 h-4" /> AI Raw Material Price Intelligence
-          </div>
-          <h1 className="text-2xl font-bold text-white">Monthly Price Forecast & Executive Overview</h1>
-          <p className="text-gray-400 text-sm mt-1">
-            Origin Date: <strong className="text-white font-mono">{metadata.forecast_origin_date}</strong> | 
-            Aluminium: <strong className="text-emerald-400">Observed (World Bank Spot)</strong> | 
-            PVC Resin: <strong className="text-emerald-400">Observed (GoI DPIIT WPI)</strong>
+          <h1 className="text-xl font-bold text-white">Monthly Price Forecast Overview</h1>
+          <p className="text-gray-400 text-xs mt-0.5">
+            Origin Date: <strong className="text-white font-mono">{metadata.forecast_origin_date}</strong> • 
+            Aluminium: <strong className="text-emerald-400">Observed Spot</strong> • 
+            PVC Resin: <strong className="text-emerald-400">Observed GoI WPI</strong>
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2">
           <button 
             onClick={handleDownloadForecastCSV}
-            className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
+            className="px-3 py-1.5 rounded-lg bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
           >
-            <Download className="w-3.5 h-3.5 text-rose-400" /> Export Forecast CSV
+            <Download className="w-3.5 h-3.5 text-rose-400" /> Export CSV
           </button>
           <button 
             onClick={handleRefreshModel}
             disabled={isRefreshing}
-            className="px-4 py-2 rounded-xl bg-gradient-to-r from-red-800 to-rose-900 hover:from-red-700 hover:to-rose-800 text-white text-xs font-bold shadow flex items-center gap-1.5 transition disabled:opacity-50"
+            className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-red-800 to-rose-900 hover:from-red-700 hover:to-rose-800 text-white text-xs font-bold shadow flex items-center gap-1.5 transition disabled:opacity-50"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} /> 
-            {isRefreshing ? 'Retraining ML...' : 'Refresh Pipeline'}
+            {isRefreshing ? 'Retraining...' : 'Refresh Pipeline'}
           </button>
         </div>
       </div>
 
       {refreshStatus && (
-        <div className={`p-3 rounded-lg text-xs flex items-center gap-2 border ${refreshStatus.type === 'success' ? 'bg-emerald-950 text-emerald-300 border-emerald-800' : 'bg-red-950 text-red-300 border-red-800'}`}>
+        <div className={`p-2.5 rounded-lg text-xs flex items-center gap-2 border ${refreshStatus.type === 'success' ? 'bg-emerald-950 text-emerald-300 border-emerald-800' : 'bg-red-950 text-red-300 border-red-800'}`}>
           {refreshStatus.type === 'success' ? <CheckCircle className="w-4 h-4" /> : <AlertTriangle className="w-4 h-4" />}
           {refreshStatus.message}
         </div>
       )}
 
       {/* Horizon Selector Bar */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-[#0A0A0E] p-3 rounded-xl border border-red-950">
         <div className="flex items-center gap-2 text-xs font-bold text-gray-300">
           <ShieldCheck className="w-4 h-4 text-red-500" /> Target Forecast Horizon:
         </div>
@@ -143,7 +140,7 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
             <button
               key={h}
               onClick={() => setSelectedHorizon(String(h))}
-              className={`px-3 py-1.5 rounded-md font-semibold transition ${
+              className={`px-3 py-1 rounded-md font-semibold transition ${
                 selectedHorizon === String(h) ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -155,10 +152,10 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
 
       {/* Dynamic Surge Alert Banner */}
       {(hasPvcSurge || hasAluSurge) && (
-        <div className="bg-red-950/80 border border-red-600 p-4 rounded-xl flex items-center gap-3 text-red-200 text-xs">
+        <div className="bg-red-950/80 border border-red-600 p-3.5 rounded-xl flex items-center gap-3 text-red-200 text-xs">
           <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 animate-bounce" />
           <div>
-            <strong className="font-bold text-white text-sm">PRICE SURGE ALERT ({selectedHorizon}M Horizon):</strong>
+            <strong className="font-bold text-white text-xs">PRICE SURGE ALERT ({selectedHorizon}M Horizon):</strong>
             <p className="mt-0.5">
               {hasPvcSurge && `PVC Resin projected to surge by +${pvcDiff.toFixed(1)}% to $${Math.round(pvcHorizonPred)}/MT. `}
               {hasAluSurge && `Aluminium projected to surge by +${aluDiff.toFixed(1)}% to $${Math.round(aluHorizonPred)}/MT. `}
@@ -171,16 +168,16 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
       {/* KPI Cards Grid (Dynamic Metrics) */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* Card 1: PVC Resin Forecast */}
-        <div className="glass-card p-5 border-l-4 border-red-600">
+        <div className="glass-card p-4 border-l-4 border-red-600">
           <div className="flex justify-between items-start">
-            <span className="text-xs font-bold text-gray-400 uppercase">PVC Resin (Observed WPI)</span>
+            <span className="text-xs font-bold text-gray-400 uppercase">PVC Resin</span>
             <span className="text-xs px-2 py-0.5 rounded bg-red-950 text-red-400 font-mono">{selectedHorizon}M Horizon</span>
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="text-2xl font-bold text-white">${Math.round(pvcHorizonPred)}</span>
             <span className="text-xs text-gray-400">/ MT</span>
           </div>
-          <div className="mt-3 flex items-center gap-1.5 text-xs">
+          <div className="mt-2.5 flex items-center gap-1.5 text-xs">
             {pvcDiff >= 0 ? (
               <span className="text-red-400 font-semibold flex items-center">
                 <TrendingUp className="w-3.5 h-3.5 mr-0.5" /> +{pvcDiff.toFixed(1)}%
@@ -198,17 +195,17 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
           </div>
         </div>
 
-        {/* Card 2: LME Aluminium Forecast */}
-        <div className="glass-card p-5 border-l-4 border-rose-600">
+        {/* Card 2: Aluminium Forecast */}
+        <div className="glass-card p-4 border-l-4 border-rose-600">
           <div className="flex justify-between items-start">
-            <span className="text-xs font-bold text-gray-400 uppercase">LME Aluminium (Observed)</span>
+            <span className="text-xs font-bold text-gray-400 uppercase">Aluminium Spot</span>
             <span className="text-xs px-2 py-0.5 rounded bg-rose-950 text-rose-400 font-mono">{selectedHorizon}M Horizon</span>
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="text-2xl font-bold text-white">${Math.round(aluHorizonPred)}</span>
             <span className="text-xs text-gray-400">/ MT</span>
           </div>
-          <div className="mt-3 flex items-center gap-1.5 text-xs">
+          <div className="mt-2.5 flex items-center gap-1.5 text-xs">
             {aluDiff >= 0 ? (
               <span className="text-red-400 font-semibold flex items-center">
                 <TrendingUp className="w-3.5 h-3.5 mr-0.5" /> +{aluDiff.toFixed(1)}%
@@ -227,38 +224,36 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
         </div>
 
         {/* Card 3: Outperformance vs Baseline */}
-        <div className="glass-card p-5 border-l-4 border-amber-600">
+        <div className="glass-card p-4 border-l-4 border-amber-600">
           <div className="flex justify-between items-start">
             <span className="text-xs font-bold text-gray-400 uppercase">Alu Model vs Naïve</span>
-            <span className="text-xs px-2 py-0.5 rounded bg-amber-950 text-amber-400">Outperformance</span>
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="text-2xl font-bold text-red-400">
               -{(aluNaiveMetrics.mape - aluMetrics.mape).toFixed(2)}%
             </span>
-            <span className="text-xs text-gray-400">Error Margin Delta</span>
+            <span className="text-xs text-gray-400">MAPE Delta</span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">
-            Ensemble achieves <strong className="text-white">{aluMetrics.mape}% MAPE</strong> vs Naïve <strong className="text-gray-400">{aluNaiveMetrics.mape}% MAPE</strong>.
+          <p className="mt-1 text-xs text-gray-400">
+            Ensemble <strong className="text-white">{aluMetrics.mape}%</strong> vs Naïve <strong className="text-gray-400">{aluNaiveMetrics.mape}%</strong>.
           </p>
           <div className="mt-2 text-[11px] text-gray-400 border-t border-gray-800 pt-2 flex justify-between">
             <span>Dir. Accuracy: <strong className="text-red-400">{aluMetrics.da}%</strong></span>
-            <span>Naïve DA: <strong className="text-gray-500">N/A (Flat)</strong></span>
+            <span>Naïve: <strong className="text-gray-500">N/A</strong></span>
           </div>
         </div>
 
         {/* Card 4: Model Coverage & Width */}
-        <div className="glass-card p-5 border-l-4 border-red-700">
+        <div className="glass-card p-4 border-l-4 border-red-700">
           <div className="flex justify-between items-start">
             <span className="text-xs font-bold text-gray-400 uppercase">95% Interval Width</span>
-            <span className="text-xs px-2 py-0.5 rounded bg-red-950 text-red-400">Residual Calibrated</span>
           </div>
           <div className="mt-2 flex items-baseline gap-2">
             <span className="text-2xl font-bold text-white">±${aluMetrics.interval_95_width}</span>
             <span className="text-xs text-red-400 font-medium">/ MT</span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">
-            Out-of-sample empirical residual quantile width for {selectedHorizon}-month horizon.
+          <p className="mt-1 text-xs text-gray-400">
+            Residual quantile width for {selectedHorizon}M horizon.
           </p>
           <div className="mt-2 text-[11px] text-gray-400 border-t border-gray-800 pt-2 flex justify-between">
             <span>80% Width: <strong className="text-red-400">±${aluMetrics.interval_80_width}</strong></span>

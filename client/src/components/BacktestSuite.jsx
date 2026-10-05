@@ -45,29 +45,26 @@ export default function BacktestSuite() {
   const selectedModelChartKey = getModelKeyForChart(selectedModel);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="glass-panel p-4 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
         <div>
-          <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
-            <ShieldCheck className="w-4 h-4" /> Leakage-Free Walk-Forward Backtest Engine
-          </div>
-          <h1 className="text-2xl font-bold text-white">Out-of-Sample Model Validation & Metric Verification</h1>
-          <p className="text-gray-400 text-sm mt-1">
-            Evaluating predictions strictly generated out-of-sample against the Naïve persistence baseline across horizons H+1 to H+6.
+          <h1 className="text-xl font-bold text-white">Walk-Forward Backtest Validation</h1>
+          <p className="text-gray-400 text-xs mt-0.5">
+            Evaluating predictions out-of-sample against the Naïve persistence baseline across horizons H+1 to H+6.
           </p>
         </div>
 
         <button 
           onClick={handleDownloadBacktestCSV}
-          className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
+          className="px-3 py-1.5 rounded-lg bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
         >
           <Download className="w-3.5 h-3.5 text-rose-400" /> Export Backtest CSV
         </button>
       </div>
 
       {/* Controls: Material, Model & Horizon Selectors */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 bg-[#0A0A0E] p-3 rounded-xl border border-red-950">
         {/* Material Selector */}
         <div>
           <label className="block text-xs text-gray-400 font-semibold mb-1">Material Dataset:</label>
@@ -78,7 +75,7 @@ export default function BacktestSuite() {
                 selectedMaterial === 'aluminium' ? 'bg-red-800 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
-              Aluminium (World Bank Spot)
+              Aluminium Spot
             </button>
             <button
               onClick={() => setSelectedMaterial('pvc_resin')}
@@ -86,7 +83,7 @@ export default function BacktestSuite() {
                 selectedMaterial === 'pvc_resin' ? 'bg-rose-900 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
-              PVC Resin (GoI DPIIT WPI)
+              PVC Resin WPI
             </button>
           </div>
         </div>
@@ -129,55 +126,43 @@ export default function BacktestSuite() {
       {/* Dynamic Metric Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* Metric 1: Selected Model MAPE */}
-        <div className="glass-card p-5 border-l-4 border-red-600">
-          <span className="text-xs font-medium text-gray-400 uppercase">Selected Model MAPE (H+{selectedHorizon})</span>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-red-400">{currentModelMetrics.mape}%</span>
+        <div className="glass-card p-4 border-l-4 border-red-600">
+          <span className="text-xs font-bold text-gray-400 uppercase">Model MAPE (H+{selectedHorizon})</span>
+          <div className="mt-1.5 flex items-baseline gap-2">
+            <span className="text-2xl font-bold text-red-400">{currentModelMetrics.mape}%</span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">MAE: ${currentModelMetrics.mae}/MT</p>
-          <div className="mt-3 text-[11px] text-red-300 font-semibold bg-red-950 p-1.5 rounded text-center border border-red-800/40">
-            {selectedModel.toUpperCase()} Out-of-Sample
-          </div>
+          <p className="mt-1 text-xs text-gray-400">MAE: ${currentModelMetrics.mae}/MT</p>
         </div>
 
         {/* Metric 2: Naïve Baseline MAPE */}
-        <div className="glass-card p-5 border-l-4 border-gray-700">
-          <span className="text-xs font-medium text-gray-400 uppercase">Naïve Baseline MAPE</span>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-400">{naiveMetrics.mape}%</span>
+        <div className="glass-card p-4 border-l-4 border-gray-700">
+          <span className="text-xs font-bold text-gray-400 uppercase">Naïve Baseline MAPE</span>
+          <div className="mt-1.5 flex items-baseline gap-2">
+            <span className="text-2xl font-bold text-gray-400">{naiveMetrics.mape}%</span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">MAE: ${naiveMetrics.mae}/MT</p>
-          <div className="mt-3 text-[11px] text-gray-400 font-semibold bg-gray-900 p-1.5 rounded text-center border border-gray-800">
-            P(t+h) = P(t) Benchmark
-          </div>
+          <p className="mt-1 text-xs text-gray-400">MAE: ${naiveMetrics.mae}/MT</p>
         </div>
 
         {/* Metric 3: Directional Accuracy */}
-        <div className="glass-card p-5 border-l-4 border-rose-600">
-          <span className="text-xs font-medium text-gray-400 uppercase">Directional Accuracy</span>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-rose-400">
+        <div className="glass-card p-4 border-l-4 border-rose-600">
+          <span className="text-xs font-bold text-gray-400 uppercase">Directional Accuracy</span>
+          <div className="mt-1.5 flex items-baseline gap-2">
+            <span className="text-2xl font-bold text-rose-400">
               {currentModelMetrics.da !== null ? `${currentModelMetrics.da}%` : 'N/A'}
             </span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">Correct Up/Down Direction Called</p>
-          <div className="mt-3 text-[11px] text-rose-300 font-semibold bg-rose-950 p-1.5 rounded text-center border border-rose-800/40">
-            {currentModelMetrics.da !== null ? 'Directional Edge' : 'Flat Persistence (N/A)'}
-          </div>
+          <p className="mt-1 text-xs text-gray-400">Correct Direction Called</p>
         </div>
 
         {/* Metric 4: Error Improvement Delta */}
-        <div className="glass-card p-5 border-l-4 border-amber-600">
-          <span className="text-xs font-medium text-gray-400 uppercase">MAPE Delta vs Naïve</span>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className={`text-3xl font-bold ${mapeDelta >= 0 ? 'text-red-400' : 'text-amber-400'}`}>
+        <div className="glass-card p-4 border-l-4 border-amber-600">
+          <span className="text-xs font-bold text-gray-400 uppercase">MAPE Delta vs Naïve</span>
+          <div className="mt-1.5 flex items-baseline gap-2">
+            <span className={`text-2xl font-bold ${mapeDelta >= 0 ? 'text-red-400' : 'text-amber-400'}`}>
               {mapeDelta >= 0 ? `-${mapeDelta}%` : `+${Math.abs(mapeDelta)}%`}
             </span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">Relative: {relImprovement}% Error Reduction</p>
-          <div className="mt-3 text-[11px] text-amber-300 font-semibold bg-amber-950 p-1.5 rounded text-center border border-amber-800/40">
-            {mapeDelta >= 0 ? 'Model Beats Naïve' : 'Naïve Outperforms'}
-          </div>
+          <p className="mt-1 text-xs text-gray-400">{relImprovement}% Error Reduction</p>
         </div>
       </div>
 

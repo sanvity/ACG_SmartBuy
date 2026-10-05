@@ -47,40 +47,37 @@ export default function ModelExplainer() {
   const arch = getArchitectureDetails(selectedModel);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-800">
-        <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
-          <Cpu className="w-4 h-4" /> Machine Learning Architecture & Feature Importance
-        </div>
-        <h1 className="text-2xl font-bold text-white">AI Prediction Engine & Feature Contribution Breakdown</h1>
-        <p className="text-gray-400 text-sm mt-1">
-          Quantifying feature weights for monthly direct log-return forecasting models ($y(t, h) = \ln(P(t+h) / P(t))$).
+      <div className="glass-panel p-4 border-l-4 border-red-800">
+        <h1 className="text-xl font-bold text-white">AI Architecture & Feature Importance</h1>
+        <p className="text-gray-400 text-xs mt-0.5">
+          Quantifying feature contribution weights for monthly direct log-return forecasting models.
         </p>
       </div>
 
       {/* Control Selector Bar */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-zinc-800">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-[#0A0A0E] p-3 rounded-xl border border-zinc-800">
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSelectedMaterial('pvc_resin')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
               selectedMaterial === 'pvc_resin' 
                 ? 'bg-red-800 text-white shadow' 
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            PVC Resin Model (GoI DPIIT WPI)
+            PVC Resin WPI
           </button>
           <button
             onClick={() => setSelectedMaterial('aluminium')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition ${
               selectedMaterial === 'aluminium' 
                 ? 'bg-rose-900 text-white shadow' 
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            Aluminium Model (World Bank Spot)
+            Aluminium Spot
           </button>
         </div>
 
@@ -119,35 +116,32 @@ export default function ModelExplainer() {
       </div>
 
       {/* Selected Model Summary Card */}
-      <div className="bg-[#0E0E14] p-5 rounded-xl border-l-4 border-rose-500 border border-red-950 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="bg-[#0E0E14] p-4 rounded-xl border-l-4 border-rose-500 border border-red-950 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-base font-bold text-white">{arch.title}</h3>
+            <h3 className="text-sm font-bold text-white">{arch.title}</h3>
             <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">
               {arch.badge}
             </span>
           </div>
-          <p className="text-xs text-gray-300 mt-1 leading-relaxed">{arch.desc}</p>
+          <p className="text-xs text-gray-300 mt-0.5 leading-relaxed">{arch.desc}</p>
         </div>
-        <span className="text-[11px] text-gray-400 font-mono bg-black p-2 rounded border border-red-950 shrink-0">
+        <span className="text-[11px] text-gray-400 font-mono bg-black p-1.5 rounded border border-red-950 shrink-0">
           {arch.scaleText}
         </span>
       </div>
 
       {/* Feature Importance Bar Breakdown */}
-      <div className="glass-panel p-6">
-        <div className="flex justify-between items-start mb-4">
+      <div className="glass-panel p-5">
+        <div className="flex justify-between items-start mb-3">
           <div>
-            <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart2 className="w-4 h-4 text-red-500" /> Feature Importance Breakdown ({selectedMaterial === 'pvc_resin' ? 'PVC Resin' : 'LME Aluminium'} — {selectedModel.toUpperCase()})
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <BarChart2 className="w-4 h-4 text-red-500" /> Feature Contribution ({selectedMaterial === 'pvc_resin' ? 'PVC Resin' : 'Aluminium'} — {selectedModel.toUpperCase()})
             </h3>
             <p className="text-xs text-gray-400">
               Relative weight of each macroeconomic feature for horizon H+{selectedHorizon}.
             </p>
           </div>
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-950 text-red-300 border border-red-800/60 flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5" /> Dynamic XAI Response
-          </span>
         </div>
 
         <div className="space-y-4 mt-6">

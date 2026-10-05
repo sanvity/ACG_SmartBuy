@@ -17,24 +17,19 @@ import {
 
 function ACGLogo() {
   return (
-    <div className="flex items-center gap-3">
-      <div className="bg-white/95 p-1.5 rounded-xl border border-zinc-700/50 shadow-md flex items-center justify-center h-11">
+    <div className="flex items-center gap-2.5">
+      <div className="bg-white/95 p-1 rounded-lg border border-zinc-700/50 shadow flex items-center justify-center h-9">
         <img 
           src="/acg_logo.png" 
-          alt="ACG Group Logo" 
-          className="h-7 w-auto object-contain"
+          alt="ACG Logo" 
+          className="h-6 w-auto object-contain"
         />
       </div>
       <div>
-        <div className="flex items-center gap-2">
-          <h1 className="text-lg font-black tracking-wider text-white uppercase font-sans">
-            ACG <span className="text-rose-400 font-medium text-sm tracking-normal capitalize">Films & Foils</span>
-          </h1>
-          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950/60 text-red-300 border border-red-900/40 font-mono">
-            MVP v2.0 FINALS
-          </span>
-        </div>
-        <p className="text-[11px] text-gray-400">Raw Material Intelligence & AI Procurement System</p>
+        <h1 className="text-base font-bold tracking-tight text-white font-sans">
+          ACG Smart Buy
+        </h1>
+        <p className="text-[11px] text-gray-400">Raw Material Intelligence & Procurement System</p>
       </div>
     </div>
   );
@@ -55,22 +50,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#050507] text-gray-100 flex flex-col font-sans selection:bg-red-800 selection:text-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0A0A0E]/95 backdrop-blur-md border-b border-red-950 px-4 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 shadow-lg shadow-black">
+      <header className="sticky top-0 z-50 bg-[#0A0A0E]/95 backdrop-blur-md border-b border-red-950 px-4 lg:px-6 py-2.5 flex justify-between items-center shadow-lg shadow-black">
         <ACGLogo />
-
-        <div className="flex items-center gap-3">
-          <div className="bg-[#121218] px-3 py-1.5 rounded-lg border border-zinc-800 flex items-center gap-2 text-xs">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-gray-200 font-medium">Walk-Forward Validated MVP Active</span>
-          </div>
-        </div>
       </header>
 
       {/* Main Layout */}
-      <div className="flex-1 w-full px-4 lg:px-8 py-6 space-y-6">
+      <div className="flex-1 w-full px-4 lg:px-6 py-4 space-y-4">
         {/* Navigation Bar */}
         <nav className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-zinc-900 no-scrollbar">
           {tabs.map((tab) => {
