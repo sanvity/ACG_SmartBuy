@@ -94,9 +94,9 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="glass-panel p-6 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
+          <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
             <Flame className="w-4 h-4" /> AI Raw Material Price Intelligence
           </div>
           <h1 className="text-2xl font-bold text-white">Monthly Price Forecast & Executive Overview</h1>
@@ -110,14 +110,14 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
         <div className="flex flex-wrap items-center gap-3">
           <button 
             onClick={handleDownloadForecastCSV}
-            className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-red-900/60 flex items-center gap-1.5 transition shadow"
+            className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
           >
-            <Download className="w-3.5 h-3.5 text-red-400" /> Export Forecast CSV
+            <Download className="w-3.5 h-3.5 text-rose-400" /> Export Forecast CSV
           </button>
           <button 
             onClick={handleRefreshModel}
             disabled={isRefreshing}
-            className="px-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-bold shadow-lg shadow-red-600/30 flex items-center gap-1.5 transition disabled:opacity-50"
+            className="px-4 py-2 rounded-xl bg-gradient-to-r from-red-800 to-rose-900 hover:from-red-700 hover:to-rose-800 text-white text-xs font-bold shadow flex items-center gap-1.5 transition disabled:opacity-50"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} /> 
             {isRefreshing ? 'Retraining ML...' : 'Refresh Pipeline'}
@@ -312,15 +312,15 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
 
               {(selectedMaterial === 'all' || selectedMaterial === 'pvc') && (
                 <>
-                  <Line name="PVC Historical ($/MT)" type="monotone" dataKey="pvcActual" stroke="#EF4444" strokeWidth={2.5} dot={{ r: 3 }} />
-                  <Line name="PVC 6M Forecast ($/MT)" type="monotone" dataKey="pvcForecast" stroke="#F87171" strokeWidth={2.5} strokeDasharray="5 5" dot={{ r: 4 }} />
+                  <Line name="PVC Historical ($/MT)" type="monotone" dataKey="pvcActual" stroke="#DC2626" strokeWidth={2.2} dot={{ r: 3 }} />
+                  <Line name="PVC 6M Forecast ($/MT)" type="monotone" dataKey="pvcForecast" stroke="#E53E3E" strokeWidth={2.2} strokeDasharray="5 5" dot={{ r: 4 }} />
                 </>
               )}
 
               {(selectedMaterial === 'all' || selectedMaterial === 'alu') && (
                 <>
-                  <Line name="Aluminium Historical ($/MT)" type="monotone" dataKey="aluActual" stroke="#E11D48" strokeWidth={2.5} dot={{ r: 3 }} />
-                  <Line name="Aluminium 6M Forecast ($/MT)" type="monotone" dataKey="aluForecast" stroke="#FB7185" strokeWidth={2.5} strokeDasharray="5 5" dot={{ r: 4 }} />
+                  <Line name="Aluminium Historical ($/MT)" type="monotone" dataKey="aluActual" stroke="#9F1239" strokeWidth={2.2} dot={{ r: 3 }} />
+                  <Line name="Aluminium 6M Forecast ($/MT)" type="monotone" dataKey="aluForecast" stroke="#BE123C" strokeWidth={2.2} strokeDasharray="5 5" dot={{ r: 4 }} />
                 </>
               )}
             </LineChart>

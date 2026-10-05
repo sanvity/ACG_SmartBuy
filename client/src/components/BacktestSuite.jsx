@@ -47,9 +47,9 @@ export default function BacktestSuite() {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="glass-panel p-6 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
+          <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
             <ShieldCheck className="w-4 h-4" /> Leakage-Free Walk-Forward Backtest Engine
           </div>
           <h1 className="text-2xl font-bold text-white">Out-of-Sample Model Validation & Metric Verification</h1>
@@ -60,9 +60,9 @@ export default function BacktestSuite() {
 
         <button 
           onClick={handleDownloadBacktestCSV}
-          className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-red-900/60 flex items-center gap-1.5 transition shadow"
+          className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
         >
-          <Download className="w-3.5 h-3.5 text-red-400" /> Export Backtest CSV
+          <Download className="w-3.5 h-3.5 text-rose-400" /> Export Backtest CSV
         </button>
       </div>
 
@@ -75,7 +75,7 @@ export default function BacktestSuite() {
             <button
               onClick={() => setSelectedMaterial('aluminium')}
               className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition ${
-                selectedMaterial === 'aluminium' ? 'bg-red-600 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
+                selectedMaterial === 'aluminium' ? 'bg-red-800 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
               LME Aluminium (Observed)
@@ -83,7 +83,7 @@ export default function BacktestSuite() {
             <button
               onClick={() => setSelectedMaterial('pvc_resin')}
               className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition ${
-                selectedMaterial === 'pvc_resin' ? 'bg-rose-600 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
+                selectedMaterial === 'pvc_resin' ? 'bg-rose-900 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
               PVC Resin (Proxy Series)
@@ -97,7 +97,7 @@ export default function BacktestSuite() {
           <select
             value={selectedModel}
             onChange={(e) => setSelectedModel(e.target.value)}
-            className="w-full bg-[#121218] border border-red-900/60 rounded-lg p-1.5 text-xs text-white font-semibold focus:border-red-500"
+            className="w-full bg-[#121218] border border-zinc-800 rounded-lg p-1.5 text-xs text-white font-semibold focus:border-red-700"
           >
             <option value="ensemble">Hybrid Stacking Ensemble (Ridge+GB+RF)</option>
             <option value="ridge">Ridge Linear Model (L2 Regularized)</option>
@@ -110,13 +110,13 @@ export default function BacktestSuite() {
         {/* Horizon Selector */}
         <div>
           <label className="block text-xs text-gray-400 font-semibold mb-1">Forecast Horizon:</label>
-          <div className="flex items-center gap-1 bg-[#121218] p-1 rounded-lg border border-red-900/50 text-xs">
+          <div className="flex items-center gap-1 bg-[#121218] p-1 rounded-lg border border-zinc-800 text-xs">
             {[1, 2, 3, 4, 5, 6].map(h => (
               <button
                 key={h}
                 onClick={() => setSelectedHorizon(String(h))}
                 className={`flex-1 py-1 rounded font-semibold transition ${
-                  selectedHorizon === String(h) ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
+                  selectedHorizon === String(h) ? 'bg-red-800 text-white shadow' : 'text-gray-400 hover:text-white'
                 }`}
               >
                 H+{h}

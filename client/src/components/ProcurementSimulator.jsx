@@ -164,9 +164,9 @@ export default function ProcurementSimulator() {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div className="glass-panel p-6 border-l-4 border-red-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
+          <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
             <Factory className="w-4 h-4" /> Digital Procurement Operations & BoM Engine
           </div>
           <h1 className="text-2xl font-bold text-white">Smart Procurement & Time-Phased S&OP Simulator</h1>
@@ -177,21 +177,21 @@ export default function ProcurementSimulator() {
 
         <button 
           onClick={handleDownloadScheduleCSV}
-          className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-red-900/60 flex items-center gap-1.5 transition shadow"
+          className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-zinc-800 flex items-center gap-1.5 transition shadow"
         >
-          <Download className="w-3.5 h-3.5 text-red-400" /> Export Schedule CSV
+          <Download className="w-3.5 h-3.5 text-rose-400" /> Export Schedule CSV
         </button>
       </div>
 
       {/* Material & Main Parameter Selector */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-zinc-800">
         <div>
           <label className="block text-xs text-gray-400 font-semibold mb-1">Target Raw Material:</label>
           <div className="flex items-center gap-2">
             <button
               onClick={() => { setMaterial('aluminium'); setBomRatio(1.05); }}
               className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition ${
-                material === 'aluminium' ? 'bg-red-600 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
+                material === 'aluminium' ? 'bg-red-800 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
               Aluminium Foil (Observed)
@@ -199,7 +199,7 @@ export default function ProcurementSimulator() {
             <button
               onClick={() => { setMaterial('pvc_resin'); setBomRatio(1.03); }}
               className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition ${
-                material === 'pvc_resin' ? 'bg-rose-600 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
+                material === 'pvc_resin' ? 'bg-rose-900 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
               PVC Resin (Proxy)

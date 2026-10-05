@@ -31,8 +31,8 @@ export default function CausalityMatrix() {
   return (
     <div className="space-y-6">
       {/* Top Header */}
-      <div className="glass-panel p-6 border-l-4 border-red-600">
-        <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
+      <div className="glass-panel p-6 border-l-4 border-red-800">
+        <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
           <Network className="w-4 h-4" /> External Market Indicators & Lead-Lag Correlations
         </div>
         <h1 className="text-2xl font-bold text-white">Macroeconomic Drivers & Cross-Correlation Matrix</h1>
@@ -42,14 +42,14 @@ export default function CausalityMatrix() {
       </div>
 
       {/* Selector & Controls */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-zinc-800">
         {/* Material Tab */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => setActiveTab('pvc_resin')}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
               activeTab === 'pvc_resin' 
-                ? 'bg-red-600 text-white shadow-lg shadow-red-600/30' 
+                ? 'bg-red-800 text-white shadow' 
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
@@ -59,7 +59,7 @@ export default function CausalityMatrix() {
             onClick={() => setActiveTab('aluminium')}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
               activeTab === 'aluminium' 
-                ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/30' 
+                ? 'bg-rose-900 text-white shadow' 
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >

@@ -42,8 +42,8 @@ export default function DataMethodology({ onDataUpdated }) {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-600">
-        <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
+      <div className="glass-panel p-6 border-l-4 border-red-800">
+        <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
           <Database className="w-4 h-4" /> Data Layer & Methodology Documentation
         </div>
         <h1 className="text-2xl font-bold text-white">Source Provenance, Dataset Schemas & Limitations</h1>

@@ -18,7 +18,7 @@ import {
 function ACGLogo() {
   return (
     <div className="flex items-center gap-3">
-      <div className="bg-white/95 p-1.5 rounded-xl border border-red-500/40 shadow-lg shadow-red-600/20 flex items-center justify-center h-11">
+      <div className="bg-white/95 p-1.5 rounded-xl border border-zinc-700/50 shadow-md flex items-center justify-center h-11">
         <img 
           src="/acg_logo.png" 
           alt="ACG Group Logo" 
@@ -28,9 +28,9 @@ function ACGLogo() {
       <div>
         <div className="flex items-center gap-2">
           <h1 className="text-lg font-black tracking-wider text-white uppercase font-sans">
-            ACG <span className="text-red-500 font-light text-sm tracking-normal capitalize">Films & Foils</span>
+            ACG <span className="text-rose-400 font-medium text-sm tracking-normal capitalize">Films & Foils</span>
           </h1>
-          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950 text-red-400 border border-red-800/60 font-mono">
+          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950/60 text-red-300 border border-red-900/40 font-mono">
             MVP v2.0 FINALS
           </span>
         </div>
@@ -53,13 +53,13 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050507] text-gray-100 flex flex-col font-sans selection:bg-red-600 selection:text-white">
+    <div className="min-h-screen bg-[#050507] text-gray-100 flex flex-col font-sans selection:bg-red-800 selection:text-white">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0A0A0E]/95 backdrop-blur-md border-b border-red-900/40 px-4 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 shadow-lg shadow-black">
+      <header className="sticky top-0 z-50 bg-[#0A0A0E]/95 backdrop-blur-md border-b border-red-950 px-4 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 shadow-lg shadow-black">
         <ACGLogo />
 
         <div className="flex items-center gap-3">
-          <div className="bg-[#121218] px-3 py-1.5 rounded-lg border border-red-900/50 flex items-center gap-2 text-xs">
+          <div className="bg-[#121218] px-3 py-1.5 rounded-lg border border-zinc-800 flex items-center gap-2 text-xs">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -72,7 +72,7 @@ export default function App() {
       {/* Main Layout */}
       <div className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
         {/* Navigation Bar */}
-        <nav className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-red-950/80 no-scrollbar">
+        <nav className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-zinc-900 no-scrollbar">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -83,7 +83,7 @@ export default function App() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
                   isActive
-                    ? 'bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white shadow-lg shadow-red-600/30 scale-[1.02] border border-red-500/50'
+                    ? 'bg-gradient-to-r from-red-900/90 to-rose-950 text-white shadow-md border border-red-800/60'
                     : 'bg-[#0E0E14] text-gray-400 hover:text-white hover:bg-[#161620] border border-gray-800/80'
                 }`}
               >
