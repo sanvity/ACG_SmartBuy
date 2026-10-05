@@ -1,38 +1,76 @@
 import React, { useState } from 'react';
-import { Cpu, Layers, BarChart2, Sparkles, CheckCircle2, Flame } from 'lucide-react';
+import { Cpu, Layers, BarChart2, Sparkles, CheckCircle2, Sliders } from 'lucide-react';
 import forecastData from '../data/forecast_data.json';
 
 export default function ModelExplainer() {
-  const [selectedMaterial, setSelectedMaterial] = useState('pvc');
+  const [selectedMaterial, setSelectedMaterial] = useState('pvc_resin');
   const [selectedModel, setSelectedModel] = useState('ensemble');
+  const [selectedHorizon, setSelectedHorizon] = useState('1');
 
-  const featureImportance = forecastData.feature_importance[selectedMaterial];
+  const materialObj = forecastData.feature_importance?.[selectedMaterial] || {};
+  const horizonObj = materialObj[selectedHorizon] || materialObj['1'] || {};
+  const featureImportance = horizonObj[selectedModel] || horizonObj.ensemble || [];
+
+  const getArchitectureDetails = (modelKey) => {
+    switch (modelKey) {
+      case 'ridge':
+        return {
+          title: "Regularized Ridge Linear Model",
+          badge: "L2 Regularized",
+          desc: "Fits a regularized linear response on standardized macro indicator returns. Prevents overfitting while preserving global trend coefficients.",
+          scaleText: "Feature Weights derived from Normalized Coefficients (|w_i| / Σ|w_i|)"
+        };
+      case 'gradient_boosting':
+        return {
+          title: "Gradient Boosting Machine (GBM)",
+          badge: "Sequential Trees",
+          desc: "Fits sequential decision trees to capture non-linear market shocks, supply disruptions, and complex indicator interaction thresholds.",
+          scaleText: "Feature Weights derived from Out-of-Fold Gini / Variance Impurity Reduction"
+        };
+      case 'random_forest':
+        return {
+          title: "Random Forest Regressor",
+          badge: "Bagged Ensembles",
+          desc: "Averages 60 decorrelated decision trees with random feature sub-sampling to reduce variance across volatile macro cycles.",
+          scaleText: "Feature Weights derived from Mean Decrease in Impurity (MDI)"
+        };
+      default:
+        return {
+          title: "Hybrid Stacking Ensemble (Recommended)",
+          badge: "Multi-Model Blend",
+          desc: "Blends Ridge Regression (30%), Gradient Boosting (40%), and Random Forests (30%) to combine trend stability with non-linear shock capture.",
+          scaleText: "Feature Weights derived from Blended Model Weights"
+        };
+    }
+  };
+
+  const arch = getArchitectureDetails(selectedModel);
 
   return (
     <div className="space-y-6">
       {/* Header Banner */}
       <div className="glass-panel p-6 border-l-4 border-red-600">
         <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
-          <Cpu className="w-4 h-4" /> Machine Learning Architecture & Explainability
+          <Cpu className="w-4 h-4" /> Machine Learning Architecture & Feature Importance
         </div>
-        <h1 className="text-2xl font-bold text-white">AI Prediction Engine & SHAP Feature Importance</h1>
+        <h1 className="text-2xl font-bold text-white">AI Prediction Engine & Feature Contribution Breakdown</h1>
         <p className="text-gray-400 text-sm mt-1">
-          Transparent, explainable price prediction models that quantify the relative weight of every macroeconomic input factor.
+          Quantifying feature weights for monthly direct log-return forecasting models ($y(t, h) = \ln(P(t+h) / P(t))$).
         </p>
       </div>
 
-      {/* Control Selector */}
+      {/* Control Selector Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
         <div className="flex items-center gap-2">
           <button
-            onClick={() => setSelectedMaterial('pvc')}
+            onClick={() => setSelectedMaterial('pvc_resin')}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
-              selectedMaterial === 'pvc' 
+              selectedMaterial === 'pvc_resin' 
                 ? 'bg-red-600 text-white shadow-lg shadow-red-600/30' 
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            PVC Resin Model
+            PVC Resin Model (Proxy)
           </button>
           <button
             onClick={() => setSelectedMaterial('aluminium')}
@@ -42,39 +80,73 @@ export default function ModelExplainer() {
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            LME Aluminium Model
+            LME Aluminium Model (Observed)
           </button>
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-gray-400">Algorithm:</span>
-          <select 
-            value={selectedModel}
-            onChange={(e) => setSelectedModel(e.target.value)}
-            className="bg-[#14141C] text-white text-xs px-3 py-1.5 rounded-lg border border-red-900/60 focus:outline-none focus:border-red-500 font-medium"
-          >
-            <option value="ensemble">Gradient Boosted Ensemble (Recommended)</option>
-            <option value="rf">Random Forest Regressor</option>
-            <option value="gb">Gradient Boosting Machine (XGB/GBM)</option>
-            <option value="ridge">Regularized Ridge Linear Model</option>
-            <option value="sarimax">SARIMAX Time Series</option>
-          </select>
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="flex items-center gap-1 bg-[#121218] p-1 rounded-lg border border-red-900/50 text-xs">
+            <span className="text-gray-400 px-2 font-medium flex items-center gap-1">
+              <Sliders className="w-3 h-3 text-red-500" /> Horizon:
+            </span>
+            {[1, 2, 3, 4, 5, 6].map(h => (
+              <button
+                key={h}
+                onClick={() => setSelectedHorizon(String(h))}
+                className={`px-2.5 py-1 rounded font-semibold transition ${
+                  selectedHorizon === String(h) ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                H+{h}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-gray-400 font-medium">Architecture:</span>
+            <select 
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+              className="bg-[#14141C] text-white text-xs px-3 py-1.5 rounded-lg border border-red-900/60 focus:outline-none focus:border-red-500 font-semibold"
+            >
+              <option value="ensemble">Hybrid Stacking Ensemble (Blend)</option>
+              <option value="gradient_boosting">Gradient Boosting Machine (GBM)</option>
+              <option value="random_forest">Random Forest Regressor</option>
+              <option value="ridge">Ridge Linear Model</option>
+            </select>
+          </div>
         </div>
       </div>
 
-      {/* Feature Importance SHAP Bar Breakdown */}
+      {/* Selected Model Summary Card */}
+      <div className="bg-[#0E0E14] p-5 rounded-xl border-l-4 border-rose-500 border border-red-950 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <div className="flex items-center gap-2">
+            <h3 className="text-base font-bold text-white">{arch.title}</h3>
+            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">
+              {arch.badge}
+            </span>
+          </div>
+          <p className="text-xs text-gray-300 mt-1 leading-relaxed">{arch.desc}</p>
+        </div>
+        <span className="text-[11px] text-gray-400 font-mono bg-black p-2 rounded border border-red-950 shrink-0">
+          {arch.scaleText}
+        </span>
+      </div>
+
+      {/* Feature Importance Bar Breakdown */}
       <div className="glass-panel p-6">
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <BarChart2 className="w-4 h-4 text-red-500" /> Relative Feature Importance & SHAP Drivers ({selectedMaterial.toUpperCase()})
+              <BarChart2 className="w-4 h-4 text-red-500" /> Feature Importance Breakdown ({selectedMaterial === 'pvc_resin' ? 'PVC Resin' : 'LME Aluminium'} — {selectedModel.toUpperCase()})
             </h3>
             <p className="text-xs text-gray-400">
-              Contribution weight of each indicator to the 1-to-6 month forward price prediction.
+              Relative weight of each macroeconomic feature for horizon H+{selectedHorizon}.
             </p>
           </div>
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-red-950 text-red-300 border border-red-800/60 flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5" /> Explainable AI (XAI)
+            <Sparkles className="w-3.5 h-3.5" /> Dynamic XAI Response
           </span>
         </div>
 
@@ -83,21 +155,20 @@ export default function ModelExplainer() {
             const percentage = Math.round(item.importance * 100);
 
             return (
-              <div key={item.factor} className="bg-[#0E0E14] p-4 rounded-xl border border-red-950/60">
+              <div key={item.feature} className="bg-[#0E0E14] p-4 rounded-xl border border-red-950/60">
                 <div className="flex justify-between items-center mb-1">
                   <div className="flex items-center gap-2">
                     <span className="w-6 h-6 rounded-full bg-red-950 text-red-400 text-xs font-bold flex items-center justify-center font-mono border border-red-800/40">
                       #{idx + 1}
                     </span>
-                    <span className="text-sm font-bold text-white">{item.factor}</span>
+                    <span className="text-sm font-bold text-white font-mono">{item.feature}</span>
                   </div>
                   <span className="text-sm font-bold text-red-400 font-mono">{percentage}% Weight</span>
                 </div>
-                <p className="text-xs text-gray-400 ml-8 mb-2">{item.description}</p>
-                <div className="w-full bg-gray-900 rounded-full h-2 ml-8 max-w-[calc(100%-2rem)]">
+                <div className="w-full bg-gray-900 rounded-full h-2 mt-2">
                   <div 
                     className="bg-gradient-to-r from-red-600 via-rose-600 to-red-500 h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${percentage}%` }}
+                    style={{ width: `${Math.max(4, percentage)}%` }}
                   ></div>
                 </div>
               </div>
@@ -110,31 +181,31 @@ export default function ModelExplainer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="glass-card p-5 border border-red-950">
           <div className="flex items-center gap-2 text-red-400 text-sm font-semibold mb-2">
-            <Layers className="w-4 h-4" /> Multi-Horizon Forecasting
+            <Layers className="w-4 h-4" /> Multi-Horizon Estimators
           </div>
-          <h4 className="text-sm font-bold text-white mb-2">Sequential Direct Predictions</h4>
+          <h4 className="text-sm font-bold text-white mb-2">Independent Direct Horizons</h4>
           <p className="text-xs text-gray-400 leading-relaxed">
-            Separate predictive estimators trained for each forecast horizon ($t+1, t+2 \dots t+6$ months) to avoid recursive error compounding across multi-month projections.
+            Separate predictive estimators trained for each horizon $h=1 \dots 6$ to prevent recursive error accumulation across multi-month forecasts.
           </p>
         </div>
 
         <div className="glass-card p-5 border border-red-950">
           <div className="flex items-center gap-2 text-rose-400 text-sm font-semibold mb-2">
-            <Cpu className="w-4 h-4" /> Hybrid Stacking Ensemble
+            <Cpu className="w-4 h-4" /> Stacking Ensemble
           </div>
-          <h4 className="text-sm font-bold text-white mb-2">GBM + RF + Ridge Blend</h4>
+          <h4 className="text-sm font-bold text-white mb-2">Ridge + GBM + RF</h4>
           <p className="text-xs text-gray-400 leading-relaxed">
-            Combines non-linear tree ensembles (capturing commodity price shocks) with regularized Ridge regression (capturing macroeconomic trends).
+            Combines linear regularized Ridge regression (capturing macro trends) with tree ensembles (capturing non-linear commodity shocks).
           </p>
         </div>
 
         <div className="glass-card p-5 border border-red-950">
           <div className="flex items-center gap-2 text-red-500 text-sm font-semibold mb-2">
-            <CheckCircle2 className="w-4 h-4" /> Shock Event Dummies
+            <CheckCircle2 className="w-4 h-4" /> Leak-Free Scaling
           </div>
-          <h4 className="text-sm font-bold text-white mb-2">Supply Disruption Features</h4>
+          <h4 className="text-sm font-bold text-white mb-2">In-Fold Standardisation</h4>
           <p className="text-xs text-gray-400 leading-relaxed">
-            Explicit binary surge indicators for geopolitical shipping bottlenecks, refinery shutdowns, and energy crunches to prevent under-forecasting tail risks.
+            StandardScaler is fitted strictly inside each expanding walk-forward training fold to ensure zero look-ahead data leakage.
           </p>
         </div>
       </div>

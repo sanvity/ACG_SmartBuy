@@ -6,3 +6,6 @@ client/dist/
 *.log
 .system_generated/
 client/video_recordings/
+__pycache__/
+*.pyc
+

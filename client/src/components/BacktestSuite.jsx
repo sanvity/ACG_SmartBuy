@@ -1,96 +1,142 @@
 import React, { useState } from 'react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
-import { ShieldCheck, Award, CheckCircle, Sliders } from 'lucide-react';
+import { ShieldCheck, Award, CheckCircle, Sliders, Download, AlertCircle } from 'lucide-react';
 import forecastData from '../data/forecast_data.json';
 
 export default function BacktestSuite() {
   const [selectedMaterial, setSelectedMaterial] = useState('aluminium');
-  const [selectedHorizon, setSelectedHorizon] = useState('1'); // '1', '2', '3' month horizons
+  const [selectedHorizon, setSelectedHorizon] = useState('1'); // '1' to '6'
+  const [selectedModel, setSelectedModel] = useState('ensemble');
 
-  const backtestData = forecastData.backtest[selectedMaterial];
-  const horizonMetrics = forecastData.horizon_metrics[selectedHorizon];
+  const backtestMaterialObj = forecastData.backtest[selectedMaterial] || {};
+  const backtestHorizonObj = backtestMaterialObj[selectedHorizon] || { metrics: {}, backtest_series: [] };
+
+  const allMetrics = backtestHorizonObj.metrics || {};
+  const currentModelMetrics = allMetrics[selectedModel] || { mape: 0, mae: 0, da: 0, interval_95_width: 0 };
+  const naiveMetrics = allMetrics.naive || { mape: 0, mae: 0 };
+
+  const mapeDelta = (naiveMetrics.mape - currentModelMetrics.mape).toFixed(2);
+  const relImprovement = naiveMetrics.mape > 0 ? (((naiveMetrics.mape - currentModelMetrics.mape) / naiveMetrics.mape) * 100).toFixed(1) : 0;
+
+  const handleDownloadBacktestCSV = () => {
+    const headers = "Origin_Date,Target_Date,Actual_Price,Origin_Price,Pred_Ensemble,Pred_Ridge,Pred_GB,Pred_RF,Pred_Naive\n";
+    const rows = backtestHorizonObj.backtest_series.map(row => 
+      `${row.origin_date},${row.target_date},${row.actual},${row.origin_price},${row.pred_ensemble},${row.pred_ridge},${row.pred_gradient_boosting},${row.pred_random_forest},${row.pred_naive}`
+    ).join("\n");
+
+    const blob = new Blob([headers + rows], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ACG_SmartBuy_Backtest_${selectedMaterial}_H${selectedHorizon}_${selectedModel}.csv`;
+    a.click();
+  };
+
+  const getModelKeyForChart = (mKey) => {
+    switch (mKey) {
+      case 'ridge': return 'pred_ridge';
+      case 'gradient_boosting': return 'pred_gradient_boosting';
+      case 'random_forest': return 'pred_random_forest';
+      case 'naive': return 'pred_naive';
+      default: return 'pred_ensemble';
+    }
+  };
+
+  const selectedModelChartKey = getModelKeyForChart(selectedModel);
 
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="glass-panel p-6 border-l-4 border-red-600">
-        <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
-          <ShieldCheck className="w-4 h-4" /> Out-of-Sample Backtesting Suite (Real CSV Data)
-        </div>
-        <h1 className="text-2xl font-bold text-white">Walk-Forward Model Validation vs Naïve Baseline</h1>
-        <p className="text-gray-400 text-sm mt-1">
-          Rigorous out-of-sample evaluation (2007–2017) testing real-world predictive power against the standard benchmark ("Next month = This month").
-        </p>
-      </div>
-
-      {/* Controls: Material & Multi-Horizon Selector */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setSelectedMaterial('aluminium')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
-              selectedMaterial === 'aluminium' 
-                ? 'bg-red-600 text-white shadow-lg shadow-red-600/30' 
-                : 'bg-gray-900 text-gray-400 hover:text-white'
-            }`}
-          >
-            LME Aluminium (CSV Dataset)
-          </button>
-          <button
-            onClick={() => setSelectedMaterial('pvc_resin')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition ${
-              selectedMaterial === 'pvc_resin' 
-                ? 'bg-rose-600 text-white shadow-lg shadow-rose-600/30' 
-                : 'bg-gray-900 text-gray-400 hover:text-white'
-            }`}
-          >
-            PVC Resin Backtest
-          </button>
-        </div>
-
-        {/* Horizon Selector Buttons */}
-        <div className="flex items-center gap-2 bg-[#121218] p-1 rounded-lg border border-red-900/50 text-xs">
-          <span className="text-gray-400 px-2 font-medium flex items-center gap-1">
-            <Sliders className="w-3 h-3 text-red-500" /> Forecast Horizon:
-          </span>
-          <button
-            onClick={() => setSelectedHorizon('1')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition ${
-              selectedHorizon === '1' ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            1-Month Horizon
-          </button>
-          <button
-            onClick={() => setSelectedHorizon('2')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition ${
-              selectedHorizon === '2' ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            2-Month Horizon
-          </button>
-          <button
-            onClick={() => setSelectedHorizon('3')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition ${
-              selectedHorizon === '3' ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            3-Month Horizon
-          </button>
-        </div>
-      </div>
-
-      {/* KPI Comparison Cards (User-Provided Horizon Metrics) */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        {/* Metric 1: AI MAPE */}
-        <div className="glass-card p-5 border-l-4 border-red-600">
-          <span className="text-xs font-medium text-gray-400 uppercase">AI Model MAPE ({selectedHorizon}M Horizon)</span>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-red-400">{horizonMetrics.mape}%</span>
+      <div className="glass-panel p-6 border-l-4 border-red-600 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <div className="flex items-center gap-2 text-red-500 font-semibold text-sm mb-1">
+            <ShieldCheck className="w-4 h-4" /> Leakage-Free Walk-Forward Backtest Engine
           </div>
-          <p className="mt-2 text-xs text-gray-400">Mean Absolute Percentage Error</p>
+          <h1 className="text-2xl font-bold text-white">Out-of-Sample Model Validation & Metric Verification</h1>
+          <p className="text-gray-400 text-sm mt-1">
+            Evaluating predictions strictly generated out-of-sample against the Naïve persistence baseline across horizons H+1 to H+6.
+          </p>
+        </div>
+
+        <button 
+          onClick={handleDownloadBacktestCSV}
+          className="px-3.5 py-2 rounded-xl bg-[#14141C] hover:bg-[#1E1E28] text-gray-200 text-xs font-semibold border border-red-900/60 flex items-center gap-1.5 transition shadow"
+        >
+          <Download className="w-3.5 h-3.5 text-red-400" /> Export Backtest CSV
+        </button>
+      </div>
+
+      {/* Controls: Material, Model & Horizon Selectors */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
+        {/* Material Selector */}
+        <div>
+          <label className="block text-xs text-gray-400 font-semibold mb-1">Material Dataset:</label>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSelectedMaterial('aluminium')}
+              className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition ${
+                selectedMaterial === 'aluminium' ? 'bg-red-600 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
+              }`}
+            >
+              LME Aluminium (Observed)
+            </button>
+            <button
+              onClick={() => setSelectedMaterial('pvc_resin')}
+              className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold transition ${
+                selectedMaterial === 'pvc_resin' ? 'bg-rose-600 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
+              }`}
+            >
+              PVC Resin (Proxy Series)
+            </button>
+          </div>
+        </div>
+
+        {/* Model Selector */}
+        <div>
+          <label className="block text-xs text-gray-400 font-semibold mb-1">Model Architecture:</label>
+          <select
+            value={selectedModel}
+            onChange={(e) => setSelectedModel(e.target.value)}
+            className="w-full bg-[#121218] border border-red-900/60 rounded-lg p-1.5 text-xs text-white font-semibold focus:border-red-500"
+          >
+            <option value="ensemble">Hybrid Stacking Ensemble (Ridge+GB+RF)</option>
+            <option value="ridge">Ridge Linear Model (L2 Regularized)</option>
+            <option value="gradient_boosting">Gradient Boosting Machine</option>
+            <option value="random_forest">Random Forest Regressor</option>
+            <option value="naive">Naïve Persistence Baseline</option>
+          </select>
+        </div>
+
+        {/* Horizon Selector */}
+        <div>
+          <label className="block text-xs text-gray-400 font-semibold mb-1">Forecast Horizon:</label>
+          <div className="flex items-center gap-1 bg-[#121218] p-1 rounded-lg border border-red-900/50 text-xs">
+            {[1, 2, 3, 4, 5, 6].map(h => (
+              <button
+                key={h}
+                onClick={() => setSelectedHorizon(String(h))}
+                className={`flex-1 py-1 rounded font-semibold transition ${
+                  selectedHorizon === String(h) ? 'bg-red-600 text-white shadow' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                H+{h}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Dynamic Metric Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        {/* Metric 1: Selected Model MAPE */}
+        <div className="glass-card p-5 border-l-4 border-red-600">
+          <span className="text-xs font-medium text-gray-400 uppercase">Selected Model MAPE (H+{selectedHorizon})</span>
+          <div className="mt-2 flex items-baseline gap-2">
+            <span className="text-3xl font-bold text-red-400">{currentModelMetrics.mape}%</span>
+          </div>
+          <p className="mt-2 text-xs text-gray-400">MAE: ${currentModelMetrics.mae}/MT</p>
           <div className="mt-3 text-[11px] text-red-300 font-semibold bg-red-950 p-1.5 rounded text-center border border-red-800/40">
-            Outperforms Naïve Baseline
+            {selectedModel.toUpperCase()} Out-of-Sample
           </div>
         </div>
 
@@ -98,81 +144,73 @@ export default function BacktestSuite() {
         <div className="glass-card p-5 border-l-4 border-gray-700">
           <span className="text-xs font-medium text-gray-400 uppercase">Naïve Baseline MAPE</span>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-gray-400">{horizonMetrics.mape_naive}%</span>
+            <span className="text-3xl font-bold text-gray-400">{naiveMetrics.mape}%</span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">Next Month = Current Month</p>
+          <p className="mt-2 text-xs text-gray-400">MAE: ${naiveMetrics.mae}/MT</p>
           <div className="mt-3 text-[11px] text-gray-400 font-semibold bg-gray-900 p-1.5 rounded text-center border border-gray-800">
-            Standard Naïve Error
+            P(t+h) = P(t) Benchmark
           </div>
         </div>
 
-        {/* Metric 3: AI Directional Accuracy */}
+        {/* Metric 3: Directional Accuracy */}
         <div className="glass-card p-5 border-l-4 border-rose-600">
           <span className="text-xs font-medium text-gray-400 uppercase">Directional Accuracy</span>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-rose-400">{horizonMetrics.da}%</span>
+            <span className="text-3xl font-bold text-rose-400">
+              {currentModelMetrics.da !== null ? `${currentModelMetrics.da}%` : 'N/A'}
+            </span>
           </div>
           <p className="mt-2 text-xs text-gray-400">Correct Up/Down Direction Called</p>
           <div className="mt-3 text-[11px] text-rose-300 font-semibold bg-rose-950 p-1.5 rounded text-center border border-rose-800/40">
-            Positive Directional Edge
+            {currentModelMetrics.da !== null ? 'Directional Edge' : 'Flat Persistence (N/A)'}
           </div>
         </div>
 
-        {/* Metric 4: MAPE Error Delta */}
+        {/* Metric 4: Error Improvement Delta */}
         <div className="glass-card p-5 border-l-4 border-amber-600">
-          <span className="text-xs font-medium text-gray-400 uppercase">MAPE Improvement</span>
+          <span className="text-xs font-medium text-gray-400 uppercase">MAPE Delta vs Naïve</span>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-bold text-red-400">
-              -{(horizonMetrics.mape_naive - horizonMetrics.mape).toFixed(2)}%
+            <span className={`text-3xl font-bold ${mapeDelta >= 0 ? 'text-red-400' : 'text-amber-400'}`}>
+              {mapeDelta >= 0 ? `-${mapeDelta}%` : `+${Math.abs(mapeDelta)}%`}
             </span>
           </div>
-          <p className="mt-2 text-xs text-gray-400">Absolute error margin reduction</p>
+          <p className="mt-2 text-xs text-gray-400">Relative: {relImprovement}% Error Reduction</p>
           <div className="mt-3 text-[11px] text-amber-300 font-semibold bg-amber-950 p-1.5 rounded text-center border border-amber-800/40">
-            Statistically Validated
+            {mapeDelta >= 0 ? 'Model Beats Naïve' : 'Naïve Outperforms'}
           </div>
         </div>
       </div>
 
-      {/* Real Walk-Forward Time Series Comparison Chart */}
+      {/* Real Time Series Chart */}
       <div className="glass-panel p-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2">
-              <Award className="w-4 h-4 text-red-500" /> Real CSV Walk-Forward Out-of-Sample Backtest Tracking (2007–2017)
+              <Award className="w-4 h-4 text-red-500" /> Walk-Forward Out-of-Sample Series (H+{selectedHorizon} Horizon)
             </h3>
             <p className="text-xs text-gray-400">
-              Plotting 120 monthly observations from user CSV: Actual ($/MT) vs AI Prediction vs Naïve Baseline.
+              Evaluated on {backtestHorizonObj.eval_count} out-of-sample test steps ({backtestHorizonObj.eval_start_date} to {backtestHorizonObj.eval_end_date}).
             </p>
           </div>
         </div>
 
         <div className="h-80 w-full">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={backtestData.backtest_series} margin={{ top: 10, right: 30, left: 10, bottom: 10 }}>
+            <LineChart data={backtestHorizonObj.backtest_series} margin={{ top: 10, right: 30, left: 10, bottom: 10 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1F1F28" />
-              <XAxis dataKey="date" stroke="#9CA3AF" tick={{ fontSize: 10 }} interval={12} />
+              <XAxis dataKey="target_date" stroke="#9CA3AF" tick={{ fontSize: 10 }} interval={12} />
               <YAxis stroke="#9CA3AF" tick={{ fontSize: 11 }} domain={['auto', 'auto']} unit=" $" />
               <Tooltip 
                 contentStyle={{ backgroundColor: '#0A0A0E', borderColor: '#7F1D1D', borderRadius: '8px', color: '#FFF' }} 
               />
               <Legend wrapperStyle={{ paddingTop: '10px', fontSize: '12px' }} />
 
-              <Line name="Actual Historical Price ($/MT)" type="monotone" dataKey="actual" stroke="#F59E0B" strokeWidth={2.5} dot={false} />
-              <Line name="AI Ensemble Forecast ($/MT)" type="monotone" dataKey="pred_ai" stroke="#EF4444" strokeWidth={2} strokeDasharray="3 3" dot={false} />
+              <Line name="Actual Price ($/MT)" type="monotone" dataKey="actual" stroke="#F59E0B" strokeWidth={2.5} dot={false} />
+              <Line name={`${selectedModel.toUpperCase()} Forecast ($/MT)`} type="monotone" dataKey={selectedModelChartKey} stroke="#EF4444" strokeWidth={2} strokeDasharray="3 3" dot={false} />
               <Line name="Naïve Baseline ($/MT)" type="monotone" dataKey="pred_naive" stroke="#6B7280" strokeWidth={1.5} strokeDasharray="6 6" dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
-      </div>
-
-      {/* Validation Methodology Principles */}
-      <div className="glass-panel p-6 border-l-4 border-red-600">
-        <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-          <CheckCircle className="w-4 h-4 text-red-500" /> Verified CSV Data Ingestion
-        </h4>
-        <p className="text-xs text-gray-300 leading-relaxed">
-          The backtesting curves and performance cards directly ingest the user's out-of-sample prediction CSV (2007–2017) and horizon metrics (1M: 4.12% MAPE / 56.67% DA, 2M: 6.26% MAPE / 58.33% DA, 3M: 8.35% MAPE / 55.83% DA).
-        </p>
       </div>
     </div>
   );

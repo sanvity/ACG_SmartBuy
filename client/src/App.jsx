@@ -4,16 +4,17 @@ import CausalityMatrix from './components/CausalityMatrix';
 import ModelExplainer from './components/ModelExplainer';
 import BacktestSuite from './components/BacktestSuite';
 import ProcurementSimulator from './components/ProcurementSimulator';
+import DataMethodology from './components/DataMethodology';
 
 import { 
   BarChart3, 
   Network, 
   Cpu, 
   ShieldCheck, 
-  Factory
+  Factory,
+  Database
 } from 'lucide-react';
 
-// Official ACG Group Brand Logo Component
 function ACGLogo() {
   return (
     <div className="flex items-center gap-3">
@@ -30,7 +31,7 @@ function ACGLogo() {
             ACG <span className="text-red-500 font-light text-sm tracking-normal capitalize">Films & Foils</span>
           </h1>
           <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950 text-red-400 border border-red-800/60 font-mono">
-            PROTOTYPE v1.0
+            MVP v2.0 FINALS
           </span>
         </div>
         <p className="text-[11px] text-gray-400">Raw Material Intelligence & AI Procurement System</p>
@@ -43,34 +44,34 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   const tabs = [
-    { id: 'dashboard', label: 'Executive Dashboard', icon: BarChart3 },
+    { id: 'dashboard', label: 'Executive Overview', icon: BarChart3 },
     { id: 'causality', label: 'Indicator Lead-Lag', icon: Network },
-    { id: 'explainer', label: 'AI Model & SHAP', icon: Cpu },
+    { id: 'explainer', label: 'AI Architecture & SHAP', icon: Cpu },
     { id: 'backtest', label: 'Walk-Forward Backtest', icon: ShieldCheck },
     { id: 'procurement', label: 'Smart Procurement & BoM', icon: Factory },
+    { id: 'provenance', label: 'Data Provenance & Upload', icon: Database },
   ];
 
   return (
     <div className="min-h-screen bg-[#050507] text-gray-100 flex flex-col font-sans selection:bg-red-600 selection:text-white">
-      {/* Navbar Header with Official ACG Logo */}
+      {/* Header */}
       <header className="sticky top-0 z-50 bg-[#0A0A0E]/95 backdrop-blur-md border-b border-red-900/40 px-4 lg:px-8 py-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 shadow-lg shadow-black">
         <ACGLogo />
 
-        {/* Live Operational Status Badge */}
         <div className="flex items-center gap-3">
           <div className="bg-[#121218] px-3 py-1.5 rounded-lg border border-red-900/50 flex items-center gap-2 text-xs">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-gray-200 font-medium">ACG AI Procurement Engine Active</span>
+            <span className="text-gray-200 font-medium">Walk-Forward Validated MVP Active</span>
           </div>
         </div>
       </header>
 
-      {/* Main Container */}
+      {/* Main Layout */}
       <div className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
-        {/* Navigation Tabs Bar */}
+        {/* Navigation Bar */}
         <nav className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-red-950/80 no-scrollbar">
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -93,13 +94,14 @@ export default function App() {
           })}
         </nav>
 
-        {/* Active Tab View Rendering */}
+        {/* View Component Rendering */}
         <main className="transition-all duration-300">
           {activeTab === 'dashboard' && <ExecutiveDashboard />}
           {activeTab === 'causality' && <CausalityMatrix />}
           {activeTab === 'explainer' && <ModelExplainer />}
           {activeTab === 'backtest' && <BacktestSuite />}
           {activeTab === 'procurement' && <ProcurementSimulator />}
+          {activeTab === 'provenance' && <DataMethodology />}
         </main>
       </div>
 
@@ -109,7 +111,7 @@ export default function App() {
         <div className="flex items-center gap-4 text-[11px] text-gray-400">
           <span>Walk-Forward Out-of-Sample Validated</span>
           <span>•</span>
-          <span>Public Data Sources (LME, EIA, Platts, ICIS)</span>
+          <span>LME / World Bank / BLS Provenance</span>
         </div>
       </footer>
     </div>
