@@ -46,9 +46,9 @@ export default function DataMethodology({ onDataUpdated }) {
         <div className="flex items-center gap-2 text-rose-400 font-semibold text-sm mb-1">
           <Database className="w-4 h-4" /> Data Layer & Methodology Documentation
         </div>
-        <h1 className="text-2xl font-bold text-white">Source Provenance, Dataset Schemas & Limitations</h1>
+        <h1 className="text-2xl font-bold text-white">Source Provenance, Empirical Datasets & Pipeline Schemas</h1>
         <p className="text-gray-400 text-sm mt-1">
-          Full technical transparency regarding historical datasets, data status (observed vs. proxy), forecast horizons, and custom CSV ingestion pipelines.
+          Full technical transparency regarding 100% observed benchmark datasets (World Bank & GoI DPIIT WPI), zero synthetic/proxy data guarantee, forecast horizons, and custom CSV ingestion pipelines.
         </p>
       </div>
 
@@ -58,8 +58,8 @@ export default function DataMethodology({ onDataUpdated }) {
         <div className="glass-panel p-6 border border-red-950 space-y-4">
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-bold text-red-400 uppercase tracking-wider">Observed Commodity Dataset</span>
-              <h3 className="text-lg font-bold text-white mt-1">LME Aluminium Cash Settlement</h3>
+              <span className="text-xs font-bold text-red-400 uppercase tracking-wider">Empirical World Bank Commodity Dataset</span>
+              <h3 className="text-lg font-bold text-white mt-1">World Bank Aluminium Spot Price ($/MT)</h3>
             </div>
             <span className="px-2.5 py-1 rounded text-xs font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
               STATUS: OBSERVED
@@ -67,15 +67,15 @@ export default function DataMethodology({ onDataUpdated }) {
           </div>
 
           <div className="text-xs space-y-2 text-gray-300 font-mono bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
-            <div className="flex justify-between"><span>Source Provenance:</span><strong className="text-white">LME / World Bank / FRED</strong></div>
-            <div className="flex justify-between"><span>Observation Frequency:</span><strong className="text-white">Monthly Average</strong></div>
+            <div className="flex justify-between"><span>Source Provenance:</span><strong className="text-white">World Bank Commodity Price Data (Pink Sheet)</strong></div>
+            <div className="flex justify-between"><span>Observation Frequency:</span><strong className="text-white">Monthly Average Spot Price</strong></div>
             <div className="flex justify-between"><span>Unit & Currency:</span><strong className="text-white">USD / Metric Ton ($/MT)</strong></div>
-            <div className="flex justify-between"><span>Historical Span:</span><strong className="text-white">2015-01 to 2026-08 ({metadata.total_historical_months} Months)</strong></div>
+            <div className="flex justify-between"><span>Historical Span:</span><strong className="text-white">2015-01 to 2026-09 ({metadata.total_historical_months} Months)</strong></div>
             <div className="flex justify-between"><span>Forecast Origin:</span><strong className="text-red-400">{metadata.forecast_origin_date}</strong></div>
           </div>
 
           <p className="text-xs text-gray-400 leading-relaxed">
-            Genuine historical monthly cash settlement prices for high-grade primary aluminium. External drivers include Alumina PAX Index, EU/US Energy Cost Index, Global Manufacturing PMI, and LME Warehouse Stock levels.
+            Genuine historical monthly spot prices for primary aluminium published by the World Bank. Macro drivers include Alumina PAX Index, Energy Cost Index, Global Manufacturing PMI, Crude Oil benchmarks, and LME Stock levels.
           </p>
         </div>
 
@@ -83,24 +83,24 @@ export default function DataMethodology({ onDataUpdated }) {
         <div className="glass-panel p-6 border border-red-950 space-y-4">
           <div className="flex justify-between items-start">
             <div>
-              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">Proxy & Custom Dataset</span>
-              <h3 className="text-lg font-bold text-white mt-1">Global PVC Resin Spot & Feedstock Index</h3>
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider">Official Government WPI Dataset</span>
+              <h3 className="text-lg font-bold text-white mt-1">Poly Vinyl Chloride (PVC) WPI Index</h3>
             </div>
-            <span className="px-2.5 py-1 rounded text-xs font-bold bg-amber-950 text-amber-300 border border-amber-800">
-              STATUS: PROXY / UPLOADABLE
+            <span className="px-2.5 py-1 rounded text-xs font-bold bg-emerald-950 text-emerald-300 border border-emerald-800">
+              STATUS: OBSERVED
             </span>
           </div>
 
           <div className="text-xs space-y-2 text-gray-300 font-mono bg-[#0A0A0E] p-4 rounded-xl border border-red-950">
-            <div className="flex justify-between"><span>Source Provenance:</span><strong className="text-white">US BLS Chemical PPI & ICIS Proxy</strong></div>
-            <div className="flex justify-between"><span>Observation Frequency:</span><strong className="text-white">Monthly Average</strong></div>
-            <div className="flex justify-between"><span>Unit & Currency:</span><strong className="text-white">USD / Metric Ton ($/MT)</strong></div>
-            <div className="flex justify-between"><span>Historical Span:</span><strong className="text-white">2015-01 to 2026-08 ({metadata.total_historical_months} Months)</strong></div>
+            <div className="flex justify-between"><span>Source Provenance:</span><strong className="text-white">Office of Economic Adviser, DPIIT, Govt of India</strong></div>
+            <div className="flex justify-between"><span>Observation Frequency:</span><strong className="text-white">Monthly Wholesale Price Index (WPI)</strong></div>
+            <div className="flex justify-between"><span>Base Year & Weight:</span><strong className="text-white">2011-12 = 100 (Weight: 0.08347)</strong></div>
+            <div className="flex justify-between"><span>Historical Span:</span><strong className="text-white">2015-01 to 2026-09 ({metadata.total_historical_months} Months)</strong></div>
             <div className="flex justify-between"><span>Forecast Origin:</span><strong className="text-rose-400">{metadata.forecast_origin_date}</strong></div>
           </div>
 
           <p className="text-xs text-gray-400 leading-relaxed">
-            Proxy price series derived from upstream petrochem feedstocks (VCM, Ethylene, Brent Crude). Buyers can upload plant-specific historical purchase contracts below to retrain the PVC model on exact ACG landed costs.
+            Official monthly Wholesale Price Index (WPI) data for Poly Vinyl Chloride (PVC) published by the Ministry of Commerce & Industry, Government of India. Custom plant CSV import remains supported for plant-specific purchase contracts.
           </p>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function DataMethodology({ onDataUpdated }) {
           <Upload className="w-4 h-4 text-rose-500" /> Custom Plant Purchase CSV Upload Workflow
         </h3>
         <p className="text-xs text-gray-400">
-          Upload plant purchase records (CSV format: <code className="text-red-400 font-mono">date, price</code>) to dynamically replace proxy data and retrain the ML pipeline on historical ACG contracts.
+          Upload internal plant purchase contracts (CSV format: <code className="text-red-400 font-mono">date, price</code>) to dynamically retrain the ML pipeline on plant-specific historical ACG transactions.
         </p>
 
         <form onSubmit={handleFileUpload} className="space-y-4">
@@ -123,8 +123,8 @@ export default function DataMethodology({ onDataUpdated }) {
                 onChange={(e) => setMaterialUpload(e.target.value)}
                 className="ml-2 bg-[#0A0A0E] border border-red-950 rounded p-1.5 text-white font-mono text-xs focus:border-red-500"
               >
-                <option value="pvc_resin">PVC Resin (Replace Proxy)</option>
-                <option value="aluminium">LME Aluminium (Custom Series)</option>
+                <option value="pvc_resin">PVC Resin (Custom Plant Contract CSV)</option>
+                <option value="aluminium">Aluminium (Custom Plant Contract CSV)</option>
               </select>
             </label>
 

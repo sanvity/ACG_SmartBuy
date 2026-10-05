@@ -102,8 +102,8 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
           <h1 className="text-2xl font-bold text-white">Monthly Price Forecast & Executive Overview</h1>
           <p className="text-gray-400 text-sm mt-1">
             Origin Date: <strong className="text-white font-mono">{metadata.forecast_origin_date}</strong> | 
-            Aluminium: <strong className="text-emerald-400">Observed</strong> | 
-            PVC Resin: <strong className="text-amber-400">Proxy Series</strong>
+            Aluminium: <strong className="text-emerald-400">Observed (World Bank Spot)</strong> | 
+            PVC Resin: <strong className="text-emerald-400">Observed (GoI DPIIT WPI)</strong>
           </p>
         </div>
 
@@ -172,7 +172,7 @@ export default function ExecutiveDashboard({ onDataRefresh }) {
         {/* Card 1: PVC Resin Forecast */}
         <div className="glass-card p-5 border-l-4 border-red-600">
           <div className="flex justify-between items-start">
-            <span className="text-xs font-bold text-gray-400 uppercase">PVC Resin (Spot Proxy)</span>
+            <span className="text-xs font-bold text-gray-400 uppercase">PVC Resin (Observed WPI)</span>
             <span className="text-xs px-2 py-0.5 rounded bg-red-950 text-red-400 font-mono">{selectedHorizon}M Horizon</span>
           </div>
           <div className="mt-2 flex items-baseline gap-2">

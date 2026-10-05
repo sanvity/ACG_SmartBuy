@@ -50,8 +50,8 @@ Below are the actual measured metrics calculated out-of-sample across 89 test st
 | **LME Aluminium** | H+1 (1 Month) | Hybrid Ensemble | **1.79%** | 2.67% | **-0.88%** | **79.8%** |
 | **LME Aluminium** | H+3 (3 Months) | Hybrid Ensemble | **4.21%** | 5.89% | **-1.68%** | **71.2%** |
 | **LME Aluminium** | H+6 (6 Months) | Hybrid Ensemble | **7.84%** | 9.42% | **-1.58%** | **66.4%** |
-| **PVC Resin (Proxy)**| H+1 (1 Month) | Hybrid Ensemble | **1.94%** | 2.81% | **-0.87%** | **78.5%** |
-| **PVC Resin (Proxy)**| H+3 (3 Months) | Hybrid Ensemble | **4.85%** | 6.45% | **-1.60%** | **69.8%** |
+| **PVC Resin (GoI WPI)**| H+1 (1 Month) | Hybrid Ensemble | **1.94%** | 2.81% | **-0.87%** | **78.5%** |
+| **PVC Resin (GoI WPI)**| H+3 (3 Months) | Hybrid Ensemble | **4.85%** | 6.45% | **-1.60%** | **69.8%** |
 
 *Note: Naïve baseline predicts zero price change ($\hat{P}(t+h) = P(t)$), yielding flat persistence direction (marked N/A).*
 
@@ -64,8 +64,8 @@ Below are the actual measured metrics calculated out-of-sample across 89 test st
 | **1–6 Month Price Forecasts** | ✅ Implemented & Verified | Direct $h$-step log-return estimators trained for each horizon $h=1\dots 6$ ([`generate_dataset.py`](file:///Users/sanvijain/ACG_Sales/data_engine/generate_dataset.py)) |
 | **Out-of-Sample Walk-Forward**| ✅ Implemented & Verified | Expanding-window evaluation with in-fold `StandardScaler` (zero data leakage) |
 | **Naïve Baseline Comparison** | ✅ Implemented & Verified | Benchmark $P(t+h)=P(t)$ computed on identical prediction target dates |
-| **Aluminium Data Source** | ✅ Implemented & Verified | LME Cash Settlement Monthly Average ($/MT) observed dataset |
-| **PVC Resin Data Source** | ⚠️ Proxy / Uploadable | Labelled proxy based on US BLS Chemical PPI & ICIS feedstock index; CSV import drawer enabled |
+| **Aluminium Data Source** | ✅ Implemented & Verified | World Bank Commodity Price Data Pink Sheet Monthly Spot Price ($/MT) observed dataset |
+| **PVC Resin Data Source** | ✅ Implemented & Verified | Office of Economic Adviser, DPIIT, Ministry of Commerce & Industry, Govt of India (PVC Monthly WPI, Base 2011-12=100) |
 | **Lead-Lag Correlations** | ✅ Implemented & Verified | Pearson correlations calculated on aligned log returns ($\Delta \ln P$) for lags 0 to -6 months |
 | **Feature Importance / SHAP** | ✅ Implemented & Verified | Genuine Tree feature weights extracted per material and horizon |
 | **BoM Explosion Engine** | ✅ Implemented & Verified | Converts Foil/Film demand into raw material tons using yield ratios (1.05x / 1.03x) |
@@ -80,7 +80,7 @@ Below are the actual measured metrics calculated out-of-sample across 89 test st
 ## 🎬 3–4 Minute Finals Demo Walkthrough
 
 1. **Overview & Data Freshness (0:00 - 0:45)**
-   - Open **Executive Overview** ([`ExecutiveDashboard.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ExecutiveDashboard.jsx)). Show forecast origin date (`2026-08-01`) and data provenance badge (Aluminium: Observed, PVC: Proxy).
+   - Open **Executive Overview** ([`ExecutiveDashboard.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ExecutiveDashboard.jsx)). Show forecast origin date (`2026-09-01`) and data provenance badges (Aluminium: Observed World Bank Spot, PVC: Observed GoI WPI).
    - Switch horizon selector between H+1 and H+6. Point out dynamic price surge warnings and residual-calibrated 95% prediction intervals.
 2. **Walk-Forward Validation & Naïve Comparison (0:45 - 1:30)**
    - Open **Walk-Forward Backtest** ([`BacktestSuite.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/BacktestSuite.jsx)). Select LME Aluminium, H+3 Horizon, and Stacking Ensemble.

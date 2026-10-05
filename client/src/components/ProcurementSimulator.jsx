@@ -194,7 +194,7 @@ export default function ProcurementSimulator() {
                 material === 'aluminium' ? 'bg-red-800 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
-              Aluminium Foil (Observed)
+              Aluminium Foil (World Bank Spot)
             </button>
             <button
               onClick={() => { setMaterial('pvc_resin'); setBomRatio(1.03); }}
@@ -202,7 +202,7 @@ export default function ProcurementSimulator() {
                 material === 'pvc_resin' ? 'bg-rose-900 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
-              PVC Resin (Proxy)
+              PVC Resin (GoI DPIIT WPI)
             </button>
           </div>
         </div>

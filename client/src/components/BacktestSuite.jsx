@@ -78,7 +78,7 @@ export default function BacktestSuite() {
                 selectedMaterial === 'aluminium' ? 'bg-red-800 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
-              LME Aluminium (Observed)
+              Aluminium (World Bank Spot)
             </button>
             <button
               onClick={() => setSelectedMaterial('pvc_resin')}
@@ -86,7 +86,7 @@ export default function BacktestSuite() {
                 selectedMaterial === 'pvc_resin' ? 'bg-rose-900 text-white shadow' : 'bg-gray-900 text-gray-400 hover:text-white'
               }`}
             >
-              PVC Resin (Proxy Series)
+              PVC Resin (GoI DPIIT WPI)
             </button>
           </div>
         </div>

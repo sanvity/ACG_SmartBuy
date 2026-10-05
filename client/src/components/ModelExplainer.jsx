@@ -70,7 +70,7 @@ export default function ModelExplainer() {
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            PVC Resin Model (Proxy)
+            PVC Resin Model (GoI DPIIT WPI)
           </button>
           <button
             onClick={() => setSelectedMaterial('aluminium')}
@@ -80,7 +80,7 @@ export default function ModelExplainer() {
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            LME Aluminium Model (Observed)
+            Aluminium Model (World Bank Spot)
           </button>
         </div>
 

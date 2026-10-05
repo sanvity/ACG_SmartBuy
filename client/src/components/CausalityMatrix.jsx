@@ -53,7 +53,7 @@ export default function CausalityMatrix() {
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            PVC Resin Price Drivers (Proxy)
+            PVC Resin Drivers (GoI DPIIT WPI)
           </button>
           <button
             onClick={() => setActiveTab('aluminium')}
@@ -63,7 +63,7 @@ export default function CausalityMatrix() {
                 : 'bg-gray-900 text-gray-400 hover:text-white'
             }`}
           >
-            LME Aluminium Drivers (Observed)
+            Aluminium Drivers (World Bank Spot)
           </button>
         </div>
 
