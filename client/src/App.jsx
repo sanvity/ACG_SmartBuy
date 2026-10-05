@@ -70,7 +70,7 @@ export default function App() {
       </header>
 
       {/* Main Layout */}
-      <div className="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
+      <div className="flex-1 w-full px-4 lg:px-8 py-6 space-y-6">
         {/* Navigation Bar */}
         <nav className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-zinc-900 no-scrollbar">
           {tabs.map((tab) => {
@@ -106,7 +106,7 @@ export default function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-[#0A0A0E] border-t border-red-950/60 py-4 px-8 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2 max-w-7xl mx-auto w-full">
+      <footer className="bg-[#0A0A0E] border-t border-red-950/60 py-4 px-4 lg:px-8 text-center text-xs text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-2 w-full">
         <span>© 2026 ACG Group — Films & Foils Strategic AI Procurement Suite</span>
         <div className="flex items-center gap-4 text-[11px] text-gray-400">
           <span>Walk-Forward Out-of-Sample Validated</span>
