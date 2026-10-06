@@ -39,12 +39,12 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   const tabs = [
-    { id: 'dashboard', label: 'Executive Overview', icon: BarChart3 },
-    { id: 'causality', label: 'Indicator Lead-Lag', icon: Network },
-    { id: 'explainer', label: 'AI Architecture & SHAP', icon: Cpu },
-    { id: 'backtest', label: 'Walk-Forward Backtest', icon: ShieldCheck },
-    { id: 'procurement', label: 'Smart Procurement & BoM', icon: Factory },
-    { id: 'provenance', label: 'Data Provenance & Upload', icon: Database },
+    { id: 'dashboard', label: '1. Executive Overview', icon: BarChart3 },
+    { id: 'procurement', label: '2. Smart Procurement & S&OP', icon: Factory },
+    { id: 'backtest', label: '3. Walk-Forward Backtest', icon: ShieldCheck },
+    { id: 'causality', label: '4. Indicator Lead-Lag', icon: Network },
+    { id: 'explainer', label: '5. AI Architecture & XAI', icon: Cpu },
+    { id: 'provenance', label: '6. Data Provenance & Upload', icon: Database },
   ];
 
   return (
@@ -82,10 +82,10 @@ export default function App() {
         {/* View Component Rendering */}
         <main className="transition-all duration-300">
           {activeTab === 'dashboard' && <ExecutiveDashboard />}
+          {activeTab === 'procurement' && <ProcurementSimulator />}
+          {activeTab === 'backtest' && <BacktestSuite />}
           {activeTab === 'causality' && <CausalityMatrix />}
           {activeTab === 'explainer' && <ModelExplainer />}
-          {activeTab === 'backtest' && <BacktestSuite />}
-          {activeTab === 'procurement' && <ProcurementSimulator />}
           {activeTab === 'provenance' && <DataMethodology />}
         </main>
       </div>

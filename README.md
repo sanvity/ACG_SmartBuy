@@ -79,17 +79,17 @@ Evaluated across 87 out-of-sample expanding-window backtest folds (2019–2026):
 
 ## 🎬 3-Minute Presentation Walkthrough
 
-1. **Executive Overview & Forecast Curves (0:00 - 0:45)**
+1. **1. Executive Overview & Forecast Curves (0:00 - 0:45)**
    - Open **Executive Overview** ([`ExecutiveDashboard.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ExecutiveDashboard.jsx)). Show forecast origin date and data provenance badges.
    - Switch horizon selector between $H=1$ and $H=6$. Highlight dynamic price surge alerts and 95% confidence bounds.
-2. **Walk-Forward Backtesting & Baselines (0:45 - 1:30)**
-   - Open **Walk-Forward Backtest** ([`BacktestSuite.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/BacktestSuite.jsx)). Compare the Stacking Ensemble against Naïve Persistence out-of-sample. Click **Export Backtest CSV**.
-3. **Macro Drivers & Feature Attribution (1:30 - 2:15)**
-   - Open **Indicator Lead-Lag** ([`CausalityMatrix.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/CausalityMatrix.jsx)). Drag the lag slider from Lag 0 to Lag -3. Highlight Base Metals and Brent Crude lead-lag co-movement.
-   - Open **AI Architecture & Feature Importance** ([`ModelExplainer.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ModelExplainer.jsx)) to view model feature weights.
-4. **Smart Procurement & S&OP Simulator (2:15 - 3:00)**
+2. **2. Smart Procurement & S&OP Simulator (0:45 - 1:45)**
    - Open **Smart Procurement & S&OP** ([`ProcurementSimulator.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ProcurementSimulator.jsx)). Adjust Finished Foil demand and target safety stock slider.
    - Point out the 3-step **Financial Storyboard** showing how the AI model locks raw material prices before expected peaks, yielding net cost reduction after deducting carrying costs. Click **Export Schedule CSV**.
+3. **3. Walk-Forward Backtesting & Baselines (1:45 - 2:15)**
+   - Open **Walk-Forward Backtest** ([`BacktestSuite.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/BacktestSuite.jsx)). Compare the Stacking Ensemble against Naïve Persistence out-of-sample. Click **Export Backtest CSV**.
+4. **4. Macro Drivers & Feature Attribution (2:15 - 3:00)**
+   - Open **Indicator Lead-Lag** ([`CausalityMatrix.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/CausalityMatrix.jsx)). Drag the lag slider from Lag 0 to Lag -3. Highlight Base Metals and Brent Crude lead-lag co-movement.
+   - Open **AI Architecture & XAI** ([`ModelExplainer.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ModelExplainer.jsx)) to view model feature weights.
 
 ---
 
@@ -97,10 +97,10 @@ Evaluated across 87 out-of-sample expanding-window backtest folds (2019–2026):
 
 - [`data_engine/generate_dataset.py`](file:///Users/sanvijain/ACG_Sales/data_engine/generate_dataset.py) — Canonical ML pipeline (walk-forward evaluation, direct forecasting, lead-lag correlations, assertions).
 - [`data_engine/test_pipeline.py`](file:///Users/sanvijain/ACG_Sales/data_engine/test_pipeline.py) — Unit test suite for dataset integrity, metrics, leakage prevention, and inventory conservation.
-- [`client/src/App.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/App.jsx) — Main React entry point with tab navigation.
-- [`client/src/components/ExecutiveDashboard.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ExecutiveDashboard.jsx) — Executive overview, 6-month forecast curves, prediction intervals, price surge alerts.
-- [`client/src/components/BacktestSuite.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/BacktestSuite.jsx) — Out-of-sample backtest tracking, horizon selectors, baseline comparisons.
-- [`client/src/components/CausalityMatrix.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/CausalityMatrix.jsx) — Macro lead-lag correlation matrix across lags 0 to -6 months.
-- [`client/src/components/ModelExplainer.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ModelExplainer.jsx) — Machine learning feature importances and XAI breakdown.
-- [`client/src/components/ProcurementSimulator.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ProcurementSimulator.jsx) — Time-phased S&OP planner, BoM explosion, carrying cost accounting, constraint checks, and financial storyboard.
-- [`client/src/components/DataMethodology.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/DataMethodology.jsx) — Dataset metadata, source provenance, limitations, custom CSV upload workflow.
+- [`client/src/App.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/App.jsx) — Main React entry point with 6-tab logical navigation.
+- [`client/src/components/ExecutiveDashboard.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ExecutiveDashboard.jsx) — **Tab 1:** Executive overview, 6-month forecast curves, prediction intervals, price surge alerts.
+- [`client/src/components/ProcurementSimulator.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ProcurementSimulator.jsx) — **Tab 2:** Time-phased S&OP planner, BoM explosion, carrying cost accounting, constraint checks, and financial storyboard.
+- [`client/src/components/BacktestSuite.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/BacktestSuite.jsx) — **Tab 3:** Out-of-sample backtest tracking, horizon selectors, baseline comparisons.
+- [`client/src/components/CausalityMatrix.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/CausalityMatrix.jsx) — **Tab 4:** Macro lead-lag correlation matrix across lags 0 to -6 months.
+- [`client/src/components/ModelExplainer.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/ModelExplainer.jsx) — **Tab 5:** Machine learning feature importances and XAI breakdown.
+- [`client/src/components/DataMethodology.jsx`](file:///Users/sanvijain/ACG_Sales/client/src/components/DataMethodology.jsx) — **Tab 6:** Dataset metadata, source provenance, limitations, custom CSV upload workflow.
